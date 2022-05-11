@@ -1,1 +1,31 @@
-commands to use in agent scripts
+#commands to use in agent scripts
+
+#std_outs
+#lscp output to be reused
+lscpu_out=`lscpu`
+
+#both 
+#output of timestamp in UTC with proper M-D-Y H:M:S formating
+timestamp=$(date --utc +"%F %T")
+
+#hardware
+id#this is db index automaticaly given later
+#hostname obtained and stored
+hostname=$(hostname -f)
+#hardware stats obtained and stored using stored lscpu output
+cpu_number=cpu_number=$(echo "$lscpu_out" | egrep "^CPU\(s\):" | awk '{print $2}' | xargs)
+cpu_architecture=$(echo "$lscpu_out" | egrep "^Architecture:" | awk '{print $2}' | xargs)
+cpu_model=$(echo "$lscpu_out" | egrep "^Model name:" | awk '{$1=$2=$3=""; print $0}' | xargs)
+cpu_mhz=$(echo "$lscpu_out" | egrep "^CPU\sMHz:" | awk '{print $3}' | xargs)
+L2_cache=$(echo "$lscpu_out" | egrep "^L2\scache:" | awk '{print $3}' | xargs)
+#obtaining total memory from meminfo file and parsing output
+total_mem=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+
+#Resource
+host_id#same this here just db index given later
+#obtain resrouce usage stats from vmstat, top and df and then parsed
+memory_free=$(vmstat -S m | awk 'FNR == 3 {print $4}')
+cpu_idle=$(top -n 1 | awk 'FNR == 3 {print $8}')
+cpu_kernel=$(top -n 1 | awk 'FNR == 3 {print $4}')
+disk_io=$(vmstat -d | awk 'FNR == 3 {print $10}')
+disk_available=$(df -m / | awk 'FNR == 2 {print $4}')
