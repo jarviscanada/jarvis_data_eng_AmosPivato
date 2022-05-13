@@ -6,7 +6,7 @@ lscpu_out=`lscpu`
 
 #both 
 #output of timestamp in UTC with proper M-D-Y H:M:S formating
-timestamp=$(date --utc +"%F %T")
+timestamp=$(vmstat -t | awk 'FNR ==3 {print $18, $19}')
 
 #hardware
 id#this is db index automaticaly given later
