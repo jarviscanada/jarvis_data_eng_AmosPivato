@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19ccf2ef-2990-4f62-b073-f134e780e439" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/practice/RegexExc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/grep/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/practice/HelloWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/grep/RegexExc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/grep/JavaGrep.java" beforeDir="false" afterPath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/grep/JavaGrep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/grep/JavaGrepImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/grep/src/main/java/ca/jrvs/apps/grep/JavaGrepImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -45,6 +45,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/centos/dev/jarvis_data_eng_Amos/core_java&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -72,7 +73,9 @@
       <workItem from="1653937398918" duration="299000" />
       <workItem from="1653940372277" duration="656000" />
       <workItem from="1653943099050" duration="1140000" />
-      <workItem from="1654009192672" duration="2431000" />
+      <workItem from="1654009192672" duration="4284000" />
+      <workItem from="1654013810387" duration="14490000" />
+      <workItem from="1654109068224" duration="6491000" />
     </task>
     <servers />
   </component>

@@ -37,7 +37,7 @@ public interface JavaGrep {
      * @param line input string
      * @return true if there is a match
      */
-    boolean containtsPattern(String line);
+    boolean containsPattern(String line);
 
     /**
      * Write lines to a file
@@ -46,10 +46,10 @@ public interface JavaGrep {
      * OutputStreamWriter is a bdridge from chracters streams to byte streams encodes bhytes to a specified charset
      * BufferedWriter writes text toa character output stream, buffering chars so the writting is efficient
      *
-     * @param Lines matched
+     * @param lines matched
      * @throws IOException if write failed
      */
-    void writeTorFile(List<String> Lines) throws IOException;
+    void writeTorFile(List<String> lines) throws IOException;
 
     /**
      * getter for the rootpath string

@@ -3,16 +3,13 @@ package ca.jrvs.apps.grep;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class JavaGrepImp implements JavaGrep {
-
     final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
     private String regex;
     private String rootPath;
@@ -20,54 +17,67 @@ public class JavaGrepImp implements JavaGrep {
 
     @Override
     public void process() throws IOException {
-
+        List<String> matchedLines = new ArrayList<String>();
+        //List<File> files = new ArrayList<File>(listFiles(this.rootPath));
+        for (File file : new ArrayList<File>(listFiles(this.getRootPath()))){
+            //List<String> lines = new ArrayList<String>(this.readLines(file));
+            for (String line : new ArrayList<String>(this.readLines(file))) {
+                if (this.containsPattern(line)) {
+                    matchedLines.add(line);
+                }
+            }
+        }
+        this.writeTorFile(matchedLines);
     }
 
     @Override
     public List<File> listFiles(String rootDir) {
+        File root = new File(rootDir);
+        File[] listing = root.listFiles();
+        List<File> files = new ArrayList<File>();
         try {
-            File root = new File(rootDir);
-            File[] listing = root.listFiles();
-            if (listing != null) {
-                List<File> files = new ArrayList<File>(Arrays.asList(listing));
-                return files;
+            files.addAll(Arrays.asList(listing));
+            for (File file : listing) {
+                if (file.isFile()) {
+                    files.add(file);
+                } else {
+                    files.addAll(this.listFiles(file.getPath()));
+                }
             }
-            else{
-                //could maybe use try catch to stop if not dir
-                this.logger.error("Error: inputted rootDir must be a dir and contain files");
-            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return files;
     }
 
     @Override
     public List<String> readLines(File inputFile) {
-        BufferedReader reader;
-        List<String> lines = new ArrayList<String>;
+        List<String> lines = new ArrayList<String>();
         try {
-            reader = new BufferedReader(new FileReader(inputFile));
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             String line = reader.readLine();
             while (line != null) {
                 lines.add(line);
                 line = reader.readLine();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return lines;
     }
 
     @Override
-    public boolean containtsPattern(String line) {
-
-        return false;
+    public boolean containsPattern(String line) {
+        return Pattern.matches(this.getRegex(), line);
     }
 
     @Override
-    public void writeTorFile(List<String> Lines) throws IOException {
-
+    public void writeTorFile(List<String> lines) throws IOException {
+        Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.getOutFile())));
+        for (String line : lines) {
+            writer.write(line);
+        }
     }
 
     @Override
