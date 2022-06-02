@@ -4,19 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cb3a982-3094-45aa-abf4-11bc22686e73" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="57a293ae-8a83-4ef3-83bc-0181b634e122" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/grep.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_reload4j_reload4j_1_2_19.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_36.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_reload4j_1_7_36.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/core_java.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_36.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grep-demo.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/grep.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/grep_2022-05-31_15:20:11.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/grep_2022-05-31_15:21:22.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/grep_2022-06-02_16:27:47.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/grep_2022-06-02_16:28:13.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrep.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrepImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrepImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/HelloWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/HelloWorld.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/RegexExc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/RegexExc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/JavaGrep.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/JavaGrep.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/JavaGrepImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/JavaGrepImp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/grep-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/grep-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
@@ -28,12 +45,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrep.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrepImp.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/HelloWorld.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/RegexExc.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -44,7 +55,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2A1lyc7ifjSgD7Qj8QWnboXhIFH" />
+  <component name="ProjectId" id="2A2Lo7XO3YDkNfwKtpUR4MIFToQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -54,6 +65,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/home/centos/dev/jarvis_data_eng_Amos/core_java/grep/pom.xml",
     "node.js.detected.package.eslint": "true",
@@ -80,6 +92,7 @@
     <configuration name="JavaGrepImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.grep.JavaGrepImp" />
       <module name="grep" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;.*IllegalArgumentException.*&quot; &quot;./src&quot; ./out/grep_out_1.txt" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ca.jrvs.apps.grep.*" />
@@ -90,6 +103,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.HelloWorld" />
+      <item itemvalue="Application.JavaGrepImp" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.JavaGrepImp" />
@@ -100,16 +117,28 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5cb3a982-3094-45aa-abf4-11bc22686e73" name="Changes" comment="" />
-      <created>1654185234707</created>
+      <changelist id="57a293ae-8a83-4ef3-83bc-0181b634e122" name="Changes" comment="" />
+      <created>1654202918800</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1654185234707</updated>
-      <workItem from="1654185241272" duration="1507000" />
+      <updated>1654202918800</updated>
+      <workItem from="1654202932318" duration="39000" />
+      <workItem from="1654202990382" duration="1404000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

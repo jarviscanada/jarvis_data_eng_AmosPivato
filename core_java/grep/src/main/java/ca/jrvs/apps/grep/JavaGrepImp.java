@@ -1,5 +1,6 @@
 package ca.jrvs.apps.grep;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +28,7 @@ public class JavaGrepImp implements JavaGrep {
                 }
             }
         }
-        this.writeTorFile(matchedLines);
+        this.writeToFile(matchedLines);
     }
 
     @Override
@@ -36,8 +37,8 @@ public class JavaGrepImp implements JavaGrep {
         File[] listing = root.listFiles();
         List<File> files = new ArrayList<File>();
         try {
-            files.addAll(Arrays.asList(listing));
             for (File file : listing) {
+                //File file = new File(fileS);
                 if (file.isFile()) {
                     files.add(file);
                 } else {
@@ -47,6 +48,7 @@ public class JavaGrepImp implements JavaGrep {
 
         } catch (Exception e) {
             e.printStackTrace();
+            throw new IllegalArgumentException("input dir argument must be ./sub_dir_path_to_search_through eg: ./dirpath in cwd with out cwd");
         }
         return files;
     }
@@ -73,11 +75,13 @@ public class JavaGrepImp implements JavaGrep {
     }
 
     @Override
-    public void writeTorFile(List<String> lines) throws IOException {
-        Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.getOutFile())));
+    public void writeToFile(List<String> lines) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.getOutFile())));
         for (String line : lines) {
             writer.write(line);
+            writer.newLine();
         }
+        writer.close();
     }
 
     @Override
@@ -114,7 +118,6 @@ public class JavaGrepImp implements JavaGrep {
         if (args.length != 3) {
             throw new IllegalArgumentException("Usage: JavaGrep regex rootPath outFile");
         }
-
         //BasicConfigurator.configure();
 
         JavaGrepImp javaGrepImp = new JavaGrepImp();

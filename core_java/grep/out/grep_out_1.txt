@@ -1,0 +1,3 @@
+     * @throws IllegalArgumentException if a given inputFile is not a file
+            throw new IllegalArgumentException("input dir argument must be ./sub_dir_path_to_search_through eg: ./dirpath in cwd with out cwd");
+            throw new IllegalArgumentException("Usage: JavaGrep regex rootPath outFile");

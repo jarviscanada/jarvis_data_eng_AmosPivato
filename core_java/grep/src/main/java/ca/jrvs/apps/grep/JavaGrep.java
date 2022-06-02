@@ -49,7 +49,7 @@ public interface JavaGrep {
      * @param lines matched
      * @throws IOException if write failed
      */
-    void writeTorFile(List<String> lines) throws IOException;
+    void writeToFile(List<String> lines) throws IOException;
 
     /**
      * getter for the rootpath string
