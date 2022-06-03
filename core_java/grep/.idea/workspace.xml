@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57a293ae-8a83-4ef3-83bc-0181b634e122" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/grep.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/grep.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/grep_out_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/grep_out_1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/grep_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/grep_out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/grep_out_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/grep_out_3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrepImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrepImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/JavaGrepImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/JavaGrepImp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/grep-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/grep-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
@@ -61,7 +59,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.HelloWorld">
+  <component name="RunManager" selected="Application.JavaGrepImp">
     <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.practice.HelloWorld" />
       <module name="grep" />
@@ -75,10 +73,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ca.jrvs.apps.grep.JavaGrepImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="JavaGrepImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.grep.JavaGrepImp" />
       <module name="grep" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;.*IllegalArgumentException.*&quot; &quot;./src&quot; ./out/grep_out_3.txt" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;.*IllegalArgumentException.*&quot; &quot;./src&quot; ./out/grep_out.txt" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ca.jrvs.apps.grep.*" />
@@ -91,12 +89,12 @@
     </configuration>
     <list>
       <item itemvalue="Application.HelloWorld" />
-      <item itemvalue="Application.ca.jrvs.apps.grep.JavaGrepImp" />
+      <item itemvalue="Application.JavaGrepImp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JavaGrepImp" />
         <item itemvalue="Application.HelloWorld" />
-        <item itemvalue="Application.ca.jrvs.apps.grep.JavaGrepImp" />
       </list>
     </recent_temporary>
   </component>
@@ -116,6 +114,9 @@
       <workItem from="1654278661355" duration="234000" />
       <workItem from="1654278899698" duration="77000" />
       <workItem from="1654279044597" duration="475000" />
+      <workItem from="1654280028408" duration="146000" />
+      <workItem from="1654283698508" duration="566000" />
+      <workItem from="1654286256962" duration="4211000" />
     </task>
     <servers />
   </component>
