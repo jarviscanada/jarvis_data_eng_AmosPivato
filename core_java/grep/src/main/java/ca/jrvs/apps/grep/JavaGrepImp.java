@@ -1,17 +1,15 @@
 package ca.jrvs.apps.grep;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class JavaGrepImp implements JavaGrep {
-    final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
+    private Logger logger = LoggerFactory.getLogger(JavaGrep.class);
     private String regex;
     private String rootPath;
     private String outFile;
@@ -46,7 +44,7 @@ public class JavaGrepImp implements JavaGrep {
                 }
             }
 
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             e.printStackTrace();
             throw new IllegalArgumentException("input dir argument must be ./sub_dir_path_to_search_through eg: ./dirpath in cwd with out cwd");
         }
@@ -63,8 +61,8 @@ public class JavaGrepImp implements JavaGrep {
                 lines.add(line);
                 line = reader.readLine();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            throw new IllegalArgumentException("buffered file reader ran into error, args or file must be valid", e);
         }
         return lines;
     }
