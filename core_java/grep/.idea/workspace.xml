@@ -5,17 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57a293ae-8a83-4ef3-83bc-0181b634e122" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/grep.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/grep.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/grep_out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/grep_out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/grep_out_3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/grep_out_3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/grep-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/grep-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/LambdaStreamExc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/LambdaStreamExc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/LambdaStreamExcImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/LambdaStreamExcImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/RegexExcImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/RegexExcImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -27,7 +35,10 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrep.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/grep/JavaGrepImp.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/HelloWorld.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/LambdaStreamExc.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/LambdaStreamExcImp.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/RegexExc.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/RegexExcImp.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,7 +70,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.JavaGrepImp">
+  <component name="RunManager" selected="Application.LambdaStreamExcImp">
     <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.practice.HelloWorld" />
       <module name="grep" />
@@ -73,10 +84,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JavaGrepImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="LambdaStreamExcImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.practice.LambdaStreamExcImp" />
+      <module name="grep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.jrvs.apps.practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegexExcImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.practice.RegexExcImp" />
+      <module name="grep" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.jrvs.apps.practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ca.jrvs.apps.grep.JavaGrepImp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ca.jrvs.apps.grep.JavaGrepImp" />
       <module name="grep" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;.*IllegalArgumentException.*&quot; &quot;./src&quot; ./out/grep_out.txt" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;.*public boolean.*&quot; &quot;./src&quot; ./out/grep_out.txt" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ca.jrvs.apps.grep.*" />
@@ -88,12 +125,16 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.LambdaStreamExcImp" />
+      <item itemvalue="Application.RegexExcImp" />
       <item itemvalue="Application.HelloWorld" />
-      <item itemvalue="Application.JavaGrepImp" />
+      <item itemvalue="Application.ca.jrvs.apps.grep.JavaGrepImp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.JavaGrepImp" />
+        <item itemvalue="Application.LambdaStreamExcImp" />
+        <item itemvalue="Application.RegexExcImp" />
+        <item itemvalue="Application.ca.jrvs.apps.grep.JavaGrepImp" />
         <item itemvalue="Application.HelloWorld" />
       </list>
     </recent_temporary>
@@ -116,7 +157,8 @@
       <workItem from="1654279044597" duration="475000" />
       <workItem from="1654280028408" duration="146000" />
       <workItem from="1654283698508" duration="566000" />
-      <workItem from="1654286256962" duration="4211000" />
+      <workItem from="1654286256962" duration="4354000" />
+      <workItem from="1654527875990" duration="20924000" />
     </task>
     <servers />
   </component>

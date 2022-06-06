@@ -11,10 +11,10 @@ public interface LambdaStreamExc {
      *Create a String stream from array
      *
      * NB: Arbitratry number of value will be stored in an array
-     * @param string
+     * @param strings
      * @return
      */
-    Stream<String> createStrStream(String ... string);
+    Stream<String> createStrStream(String ... strings);
 
     /**
      * Convert all string to uppercase
@@ -51,10 +51,10 @@ public interface LambdaStreamExc {
 
     /**
      * Convert a intStream to list
-     * @param inStream
+     * @param intStream
      * @return
      */
-    List<Integer> toList(IntStream inStream);
+    List<Integer> toList(IntStream intStream);
 
     /**
      * Create a IntStream range froms start to end inclusive
@@ -76,7 +76,7 @@ public interface LambdaStreamExc {
      * @param intStream
      * @return
      */
-    IntStream gerOdd(IntStream intStream);
+    IntStream getOdd(IntStream intStream);
 
     /**
      * return a lambda function that prints a message with a prefix and suffix

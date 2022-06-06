@@ -1,4 +1,7 @@
-     * @throws IllegalArgumentException if a given inputFile is not a file
-            throw new IllegalArgumentException("input dir argument must be ./sub_dir_path_to_search_through eg: ./dirpath in cwd with out cwd");
-            throw new IllegalArgumentException("buffered file reader ran into error, args or file must be valid", e);
-            throw new IllegalArgumentException("Usage: JavaGrep regex rootPath outFile");
+    public boolean matchJpeg(String filename);
+    public boolean matchIp(String ip);
+    public boolean isEmptyLine(String line);
+    public boolean matchJpeg(String filename) {
+    public boolean matchIp(String ip) {
+    public boolean isEmptyLine(String line) {
+    public boolean containsPattern(String line) {
