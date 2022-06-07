@@ -28,8 +28,9 @@ public interface LambdaStreamExc {
     /**
      * filter strings that contain the pattern
      * e.g. filter(stringStream, "a") will return another stream which no element contains a
+     *
      * @param stringStream
-     * @param pattern
+     * @param pattern must be a regex string for better results as its a string type not a pattern
      * @return
      */
     Stream<String> filter(Stream<String> stringStream, String pattern);

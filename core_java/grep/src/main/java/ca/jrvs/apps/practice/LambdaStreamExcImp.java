@@ -18,40 +18,33 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
     public Stream<String> createStrStream(String... strings) {
         //... is called varargs and allows for the paramter to be inputed with an uknown amount of values before hand and consolidates them into
         //an array
-        Stream<String> stream = Arrays.stream(strings);
-        return stream;
+       return Arrays.stream(strings);
     }
 
     @Override
     public Stream<String> toUpperCase(String... strings) {
-        Stream<String> stream = this.createStrStream(strings)
-            .map(String::toUpperCase);
-        return stream;
+        return this.createStrStream(strings).map(String::toUpperCase);
     }
 
     @Override
     public Stream<String> filter(Stream<String> stringStream, String pattern) {
-        stringStream.filter(s -> !s.matches(pattern));
-        return stringStream;
+        return stringStream.filter(s -> !s.matches(pattern));
     }
 
     @Override
     public IntStream createInStream(int[] arr) {
-        IntStream intStream = Arrays.stream(arr);
-        return intStream;
+        return Arrays.stream(arr);
     }
 
     @Override
     public <E> List<E> toList(Stream<E> stream) {
-        List<E> list = stream.collect(Collectors.toList());
-        return list;
+        return stream.collect(Collectors.toList());
     }
 
     @Override
     public List<Integer> toList(IntStream intStream) {
         //boxed converts intStream to a Stream<integer>
-        List<Integer> list = intStream.boxed().collect(Collectors.toList());
-        return list;
+        return intStream.boxed().collect(Collectors.toList());
     }
 
     @Override
@@ -62,22 +55,17 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
 
     @Override
     public DoubleStream squareRootIntStream(IntStream intStream) {
-        DoubleStream doubleStream = intStream
-                .asDoubleStream()
-                .map(x -> Math.sqrt(x));
-        return doubleStream;
+        return intStream.asDoubleStream().map(x -> Math.sqrt(x));
     }
 
     @Override
     public IntStream getOdd(IntStream intStream) {
-        intStream.filter(num -> num % 2 != 0);
-        return intStream;
+        return intStream.filter(num -> num % 2 != 0);
     }
 
     @Override
     public Consumer<String> getLambdaPrinter(String prefix, String suffix) {
-        Consumer<String> printer = (message) -> System.out.println(prefix+message+suffix);
-        return printer;
+        return (message) -> System.out.println(prefix+message+suffix);
     }
 
     @Override
@@ -100,8 +88,7 @@ public class LambdaStreamExcImp implements LambdaStreamExc{
         //using flatmap vs using map, perfroms flatning along with mapping and processes
         //the stream of stream's values
         //also using one to manu mappings
-        Stream<Integer> flatints= ints.flatMap(pList -> pList.stream().map(num -> num * num));
-        return flatints;
+        return ints.flatMap(pList -> pList.stream().map(num -> num * num));
     }
 
     public static void main(String[] args) {
