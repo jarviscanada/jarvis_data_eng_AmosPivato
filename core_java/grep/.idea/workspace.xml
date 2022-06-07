@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57a293ae-8a83-4ef3-83bc-0181b634e122" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/LambdaStreamExc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/LambdaStreamExc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/LambdaStreamExcImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/LambdaStreamExcImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/TestJunit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ca/jrvs/apps/practice/TestJunit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/JavaGrep.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/grep/JavaGrepImp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/practice/HelloWorld.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/practice/LambdaStreamExc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/practice/LambdaStreamExcImp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/practice/RegexExc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/practice/RegexExcImp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ca/jrvs/apps/practice/TestJunit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/grep-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-grep-1.0-SNAPSHOT.jar" beforeDir="false" />
-    </list>
+    <list default="true" id="57a293ae-8a83-4ef3-83bc-0181b634e122" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -186,7 +170,7 @@
       <workItem from="1654283698508" duration="566000" />
       <workItem from="1654286256962" duration="4354000" />
       <workItem from="1654527875990" duration="20924000" />
-      <workItem from="1654615197716" duration="17126000" />
+      <workItem from="1654615197716" duration="20347000" />
     </task>
     <servers />
   </component>
