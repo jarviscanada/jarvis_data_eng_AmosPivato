@@ -44,8 +44,8 @@
     {
       "description": [
         "Twitter App: ",
-        "JDBC App: ",
-        "Grep App: "
+        "JDBC App: Learned and implemented JDBC CRUD app using a test Database to use a DAO design pattern for easy application and database interactions.",
+        "Grep App: Implemented a GREP application using Maven in Java that could search for strings within a directories files using a matching regex pattern. Distributed over Dockerhub."
       ],
       "git_url": "/core_java",
       "name": "Core Java Apps"
