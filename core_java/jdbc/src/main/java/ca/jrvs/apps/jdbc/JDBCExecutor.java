@@ -13,11 +13,11 @@ public class JDBCExecutor {
         try {
             Connection connection = dcm.getConnection();
             //challenge question
-            OrderDAO orderDAO = new OrderDAO(connection);
+            /*OrderDAO orderDAO = new OrderDAO(connection);
             Order order = orderDAO.findById(1000);
-            System.out.println(order);
+            System.out.println(order);*/
 
-            //CustomerDAO customerDAO = new CustomerDAO(connection);
+            CustomerDAO customerDAO = new CustomerDAO(connection);
 
             /*Customer customer = new Customer(); //this block creates a dto for a new customer, adds it to the db, updates it and then deletes it through the dao
             customer.setFirstName("John");
@@ -38,11 +38,11 @@ public class JDBCExecutor {
             System.out.println(dbCustomer);
             customerDAO.delete(dbCustomer.getId());*/
 
-            /*Customer customer = customerDAO.findById(10000); //this dto is created to check entry field data and then update it using its DAO update statem and sto set method
+            Customer customer = customerDAO.findById(10000); //this dto is created to check entry field data and then update it using its DAO update statem and sto set method
             System.out.println(customer.getFirstName() + " " + customer.getLastName() + " " + customer.getEmail());
-            customer.setEmail("gwashington@wh.gov");
+            customer.setEmail("washington21@wh.gov");
             customer = customerDAO.update(customer);
-            System.out.println(customer.getFirstName() + " " + customer.getLastName() + " " + customer.getEmail());*/
+            System.out.println(customer.getFirstName() + " " + customer.getLastName() + " " + customer.getEmail());
 
             /*Customer customer = customerDAO.findById(1000);  //this block finds a customer by its id by passing the customer dto through the dao
             System.out.println(customer.getFirstName() + " " +customer.getLastName());*/
