@@ -1,8 +1,6 @@
-package ca.jrvs.practice.codingChallenge;
+package ca.jrvs.apps.practice.codingChallenge;
 
 import org.junit.*;
-
-import static org.junit.Assert.*;
 
 public class OddEvenUnitTest {
 
