@@ -79,7 +79,7 @@ public class TwitterHttpHelper implements HttpHelper{
             throw new IllegalArgumentException("unknown Http method: " + method.name());
         }
     }
-//consumerKey=XLY9vAElirQuUYTbG6R0uFkSd;consumerSecret=5cVHnD2CjE1SKijFIfpqK8Q3CJV8yJkpwCl4ggGBq4eoE1h8ad;accessToken=1531317516152315906-J9YVBIZ7cjMzkSTSGv73QKdDdev7mt;tokenSecret=ppRmvj72rYGOesZk7sAfISaOqJRLv4OP3a91kEVeDhQ9g
+
     public static void main(String[] args) throws Exception{
         String consumerKey = System.getenv("consumerKey");
         String consumerSecret = System.getenv("consumerSecret");
