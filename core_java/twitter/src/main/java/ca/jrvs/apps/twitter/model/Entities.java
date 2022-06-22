@@ -1,22 +1,23 @@
 package ca.jrvs.apps.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Arrays;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Entities {
 
-    private Hashtag[] hastags;
+    private Hashtag[] hashtags;
 
     private UserMention[] userMentions;
 
-    public Hashtag[] getHastags() {
-        return hastags;
+    public Hashtag[] getHashtags() {
+        return hashtags;
     }
 
-    public void setHastags(Hashtag[] hastags) {
-        this.hastags = hastags;
+    public void setHashtags(Hashtag[] hashtags) {
+        this.hashtags = hashtags;
     }
 
     public UserMention[] getUserMentions() {
@@ -30,7 +31,7 @@ public class Entities {
     @Override
     public String toString() {
         return "Entities{" +
-                "hastags=" + Arrays.toString(hastags) +
+                "hastags=" + Arrays.toString(hashtags) +
                 ", userMentions=" + Arrays.toString(userMentions) +
                 '}';
     }

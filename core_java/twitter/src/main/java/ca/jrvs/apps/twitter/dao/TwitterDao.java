@@ -6,13 +6,11 @@ import ca.jrvs.apps.twitter.example.JsonParser;
 import ca.jrvs.apps.twitter.model.Tweet;
 import com.google.gdata.util.common.base.PercentEscaper;
 import org.apache.http.HttpResponse;
-import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -75,7 +73,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
         return parseResponseBody(response, HTTP_OK);
     }
 
-    private Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode) {
+    Tweet parseResponseBody(HttpResponse response, Integer expectedStatusCode) {
         Tweet tweet = null;
         //check response
         int status = response.getStatusLine().getStatusCode();
@@ -110,7 +108,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
 
     private URI getPostUri(Tweet tweet) throws URISyntaxException {
         PercentEscaper percentEscaper = new PercentEscaper("", false);
-        return new URI(API_BASE_URI+POST_PATH+QUERY_SYM+"status"+EQUAL+percentEscaper.escape(tweet.getText()));
+        return new URI(API_BASE_URI+POST_PATH+QUERY_SYM+"status"+EQUAL+percentEscaper.escape(tweet.getText())+AMPERSAND+"lon="+tweet.getCoordinates().getCoordinates()[0]+AMPERSAND+"lat="+tweet.getCoordinates().getCoordinates()[1]);
     }
 
     private URI getShowUri(String id) throws URISyntaxException {
