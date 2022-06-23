@@ -54,11 +54,11 @@ public class TwitterDaoIntTest {
     @Test
     public void findById() {
         logger.info("start of find byid method test");
-        String text = "@3picAmos hello #abc 1655921451600";
+        String text = "@3picAmos hello #abc 1655923111688";
         String hashTag = "#abc";
         double lon = -1d;
         double lat = 1d;
-        Tweet tweet = twitterDao.findById("1539672285342318595");
+        Tweet tweet = twitterDao.findById("1539679251103875075");
 
         assertEquals(text, tweet.getText());
         Coordinates coordinates = tweet.getCoordinates();
@@ -72,6 +72,7 @@ public class TwitterDaoIntTest {
     @Test
     public void deleteById() {
         logger.info("start of delete by id method test");
+        //commented out because not needed and also tested in create test case
         //Tweet response = twitterDao.deleteById("1539672285342318595");
         //Tweet response1 = twitterDao.deleteById("1539675071614255104");
         //Tweet response2 = twitterDao.deleteById("1539678077218848769");
