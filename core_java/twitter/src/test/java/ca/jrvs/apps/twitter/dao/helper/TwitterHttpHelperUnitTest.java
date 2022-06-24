@@ -45,7 +45,7 @@ public class TwitterHttpHelperUnitTest {
     @Test
     public void httpPost() throws Exception {
         logger.info("testing sending a tweet");
-        String status = "new tweet who dis?";
+        String status = "new tweet who dis?" + System.currentTimeMillis();
         PercentEscaper percentEscaper = new PercentEscaper("", false);
         HttpResponse response = twitterHttpHelper.httpPost(new URI("https://api.twitter.com/1.1/statuses/update.json?status="+percentEscaper.escape(status)));
         logger.info(EntityUtils.toString(response.getEntity()));

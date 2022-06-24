@@ -70,9 +70,9 @@ public class TwitterService implements Service{
     private Tweet validateShowTweet(Tweet tweet, String[] fields){
         String[] expected = {"created_at","id", "id_str", "text", "entities", "coordinates", "retweet_count", "favorite_count", "favorited", "retweeted"};
         for (String field : expected) {
-            if (!Arrays.stream(fields).anyMatch(str -> str == field)) {
+            if (!Arrays.stream(fields).anyMatch(str -> str.equals(field))) {
                 switch (field){
-                    case "created_a":
+                    case "created_at":
                         tweet.setCreated_at(null);
                         break;
                     case "id":
