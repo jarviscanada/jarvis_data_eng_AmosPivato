@@ -29,7 +29,7 @@ public class TwitterService implements Service{
         if (validateId(id)){
             try {
                 tweet = (Tweet) dao.findById(id);
-            } catch (Exception e) {
+            } catch (RuntimeException e) {
                 throw new IllegalArgumentException("id provided does not exist");
             }
             response = validateShowTweet(tweet, fields);
@@ -45,7 +45,12 @@ public class TwitterService implements Service{
         validateDeleteTweets(ids);
         List<Tweet> tweets = new ArrayList<>();
         for (String id : ids){
-            tweets.add((Tweet) dao.deleteById(id));
+            try {
+                tweets.add((Tweet) dao.deleteById(id));
+            }
+            catch (RuntimeException e) {
+                throw new IllegalArgumentException("id provided does not exist");
+            }
         }
         return tweets;
     }

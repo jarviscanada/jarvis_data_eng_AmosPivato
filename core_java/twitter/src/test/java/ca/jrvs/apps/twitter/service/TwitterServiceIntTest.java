@@ -13,6 +13,8 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class TwitterServiceIntTest {
@@ -49,7 +51,7 @@ public class TwitterServiceIntTest {
         Tweet post = TweetUtil.buildTweet(text, lon, lat);
         logger.info(JsonParser.toJson(post, true, true));
         Tweet tweetOut = twitterService.postTweet(post);
-
+        logger.info(JsonParser.toJson(tweetOut, true, true));
 
         logger.info("start of unsccesful posttweet test");
         String text1 = "@3picAmos hello this tweet is too long and shouldnt be able to be posted as the maximum amount of caracters allowed in a tweet is about 140 charstaers and this one is of about 200" + hashTag + " " + System.currentTimeMillis();
@@ -70,6 +72,9 @@ public class TwitterServiceIntTest {
             logger.info("exception was thrown correctly");
         }
 
+        //consolidate delete so that new tweets are collected after test and makes delete test easier
+        String[] tweets = {tweetOut.getId_str()};
+        twitterService.deleteTweets(tweets);
 
     }
 
@@ -116,6 +121,31 @@ public class TwitterServiceIntTest {
 
     @Test
     public void deleteTweets() {
+        logger.info("start of deletetweets successful method test");
+        //String[] ids = { "1540349544181137408", "1540350610108727297", "1540352520463466496", "1540352950211854343"};
+        List<Tweet> tweet;
 
+        //tweet = twitterService.deleteTweets(ids);
+        //logger.info(tweet.toString());
+
+        logger.info("start of deletetweets invalid id method test");
+        try {
+            String[] id = {"PivatoAmos"};
+            tweet = twitterService.deleteTweets(id);
+        } catch (IllegalArgumentException e) {
+            logger.info("exception properly thrown");
+        }
+        try {
+            String[] id = {"21123"};
+            tweet = twitterService.deleteTweets(id);
+        } catch (IllegalArgumentException e) {
+            logger.info("exception properly thrown");
+        }
+        try {
+            String[] id = {"1539672285342318595"};
+            tweet = twitterService.deleteTweets(id);
+        } catch (IllegalArgumentException e) {
+            logger.info("exception properly thrown");
+        }
     }
 }
