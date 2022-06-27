@@ -8,13 +8,17 @@ import ca.jrvs.apps.twitter.example.JsonParser;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.service.TwitterService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class TwitterCLIApp {
 
     private Controller controller;
 
+    @Autowired
     public TwitterCLIApp(Controller controller) {
         this.controller = controller;
     }
@@ -69,4 +73,4 @@ public class TwitterCLIApp {
         }
     }
 }
-//1539679251103875075
+//1539679251103875075 delete 1540476038794432512,1540474806474514432,1540473824390561795
