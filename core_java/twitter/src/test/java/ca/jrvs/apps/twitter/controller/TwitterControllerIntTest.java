@@ -46,8 +46,9 @@ public class TwitterControllerIntTest {
     @Test
     public void postTweet() throws JsonProcessingException {
         logger.info("start of succesful posttweet test");
-        String hashTag = "#abc";
-        String text = "@3picAmos hello " + hashTag + " " + System.currentTimeMillis();
+        //String hashTag = "#abc";
+        //String text = "@3picAmos hello " + hashTag + " " + System.currentTimeMillis();
+        String text = "hello friends"+ System.currentTimeMillis();
         double lon = -1d;
         double lat = 1d;
         Tweet post = TweetUtil.buildTweet(text, lon, lat);

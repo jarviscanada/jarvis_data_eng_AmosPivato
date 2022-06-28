@@ -44,8 +44,9 @@ public class TwitterServiceIntTest {
     @Test
     public void postTweet() throws JsonProcessingException {
         logger.info("start of succesful posttweet test");
-        String hashTag = "#abc";
-        String text = "@3picAmos hello " + hashTag + " " + System.currentTimeMillis();
+        ///String hashTag = "#abc";
+        //String text = "@3picAmos hello " + hashTag + " " + System.currentTimeMillis();
+        String text = "hello friends"+ System.currentTimeMillis();
         double lon = -1d;
         double lat = 1d;
         Tweet post = TweetUtil.buildTweet(text, lon, lat);
@@ -54,7 +55,7 @@ public class TwitterServiceIntTest {
         logger.info(JsonParser.toJson(tweetOut, true, true));
 
         logger.info("start of unsccesful posttweet test");
-        String text1 = "@3picAmos hello this tweet is too long and shouldnt be able to be posted as the maximum amount of caracters allowed in a tweet is about 140 charstaers and this one is of about 200" + hashTag + " " + System.currentTimeMillis();
+        String text1 = "@3picAmos hello this tweet is too long and shouldnt be able to be posted as the maximum amount of caracters allowed in a tweet is about 140 charstaers and this one is of about 200" + " " + System.currentTimeMillis();
         Tweet post1 = TweetUtil.buildTweet(text1, lon, lat);
         logger.info(JsonParser.toJson(post1, true, true));
         try {

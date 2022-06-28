@@ -32,8 +32,9 @@ public class TwitterDaoIntTest {
     @Test
     public void create() throws Exception{
         logger.info("start of create method test");
-        String hashTag = "#abc";
-        String text = "@3picAmos hello " + hashTag + " " + System.currentTimeMillis();
+        //String hashTag = "#abc";
+        //String text = "@3picAmos hello " + hashTag + " " + System.currentTimeMillis();
+        String text = "hello friends"+ System.currentTimeMillis();
         double lon = -1d;
         double lat = 1d;
         Tweet post = TweetUtil.buildTweet(text, lon, lat);
@@ -47,7 +48,7 @@ public class TwitterDaoIntTest {
         assertEquals(2, coordinates.getCoordinates().length);
         assertEquals(lon, coordinates.getCoordinates()[0], 0.000001d);
         assertEquals(lat, coordinates.getCoordinates()[1], 0.000001d);
-        assertTrue(hashTag.contains(tweetOut.getEntities().getHashtags()[0].getText()));
+        //assertTrue(hashTag.contains(tweetOut.getEntities().getHashtags()[0].getText()));
         Tweet response = twitterDao.deleteById(tweetOut.getId_str()); //delete after to avoid incraesing tweets
     }
 
