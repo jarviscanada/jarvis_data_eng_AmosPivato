@@ -31,6 +31,9 @@ skills:
     - Haskel
     - Erlang/Rust/Prolog
     - Oracle
+    - PSQL
+    - DOCKER
+    - JUNIT
   # At least 5 skills
   familiar:
     - React/React Native
@@ -53,7 +56,7 @@ jarvis_projects:
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
-      - "Twitter App: "
+      - "Twitter App: Implemented a Twitter CRD app that works with Twitters REST API to post, show or delete tweets, Springboot was used to handle app dependencies and to make sure all the apps layers functioned accordingly, and was then deployed through dockerhub as a docker image for easy distributions and execution.."
       - "JDBC App: Learned and implemented JDBC CRUD app using a test Database to use a DAO design pattern for easy application and database interactions."
       - "Grep App: Implemented a GREP application using Maven in Java that could search for strings within a directories files using a matching regex pattern. Distributed over Dockerhub."
   - name: "Springboot App"
@@ -115,7 +118,7 @@ professional_experience:
 #List of edcuation
 education: 
   - school_name: "Tronto Metropolitan University"
-    duration: "2017-2021"
+    duration: "2017-2022"
     degree: "Bachelor Computer Science (honours)"
     department: "Department of Computer Science"
     awards_achievements:

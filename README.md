@@ -6,7 +6,7 @@ My name is Amos Pivato, and I am a Toronto Metropolitan University Computer Scie
 
 **Proficient:** Python, C/C++, Visual Basic, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
 
-**Competent:** Java, JavaScript/Jquery, HTML/CSS, DAX/M, Power BI/Power Query, SAP, R, Haskel, Erlang/Rust/Prolog, Oracle
+**Competent:** Java, JavaScript/Jquery, HTML/CSS, DAX/M, Power BI/Power Query, SAP, R, Haskel, Erlang/Rust/Prolog, Oracle, PSQL, DOCKER, JUNIT
 
 **Familiar:** React/React Native, Android studio, Selenium, PHP/ASP, Ruby, Perl, Arduino/Raspberry Pi
 
@@ -22,7 +22,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AmosPivato
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AmosPivato/tree/master/core_java)]:
       
-  - Twitter App: 
+  - Twitter App: Implemented a Twitter CRD app that works with Twitters REST API to post, show or delete tweets, Springboot was used to handle app dependencies and to make sure all the apps layers functioned accordingly, and was then deployed through dockerhub as a docker image for easy distributions and execution..
   - JDBC App: Learned and implemented JDBC CRUD app using a test Database to use a DAO design pattern for easy application and database interactions.
   - Grep App: Implemented a GREP application using Maven in Java that could search for strings within a directories files using a matching regex pattern. Distributed over Dockerhub.
 
@@ -55,7 +55,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AmosPivato
 
 
 ## Education
-**Tronto Metropolitan University (2017-2021)**, Bachelor Computer Science (honours), Department of Computer Science
+**Tronto Metropolitan University (2017-2022)**, Bachelor Computer Science (honours), Department of Computer Science
 
 **University of Toronto Scarborough (2015-2016)**, Environmental Science, Department of Physical & Environmental Science
 - 3rd place in UTSC's FinanceHacks Hackathon

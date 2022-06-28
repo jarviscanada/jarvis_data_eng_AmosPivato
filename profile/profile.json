@@ -4,7 +4,7 @@
       "awards_achievements": null,
       "degree": "Bachelor Computer Science (honours)",
       "department": "Department of Computer Science",
-      "duration": "2017-2021",
+      "duration": "2017-2022",
       "school_name": "Tronto Metropolitan University"
     },
     {
@@ -43,7 +43,7 @@
     },
     {
       "description": [
-        "Twitter App: ",
+        "Twitter App: Implemented a Twitter CRD app that works with Twitters REST API to post, show or delete tweets, Springboot was used to handle app dependencies and to make sure all the apps layers functioned accordingly, and was then deployed through dockerhub as a docker image for easy distributions and execution..",
         "JDBC App: Learned and implemented JDBC CRUD app using a test Database to use a DAO design pattern for easy application and database interactions.",
         "Grep App: Implemented a GREP application using Maven in Java that could search for strings within a directories files using a matching regex pattern. Distributed over Dockerhub."
       ],
@@ -132,7 +132,10 @@
       "R",
       "Haskel",
       "Erlang/Rust/Prolog",
-      "Oracle"
+      "Oracle",
+      "PSQL",
+      "DOCKER",
+      "JUNIT"
     ],
     "familiar": [
       "React/React Native",
