@@ -1,9 +1,7 @@
 package ca.jrvs.apps.practice.dataStructure.map;
 
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Set;
 
 public class HashJMap<K, V> implements JMap<K, V> {
 
@@ -66,10 +64,22 @@ public class HashJMap<K, V> implements JMap<K, V> {
     public HashJMap(int initialCapacity, float loadFactor) {
         //validate inputs
         //your code goes here
+        if (!IsPowerOfTwo(initialCapacity)){
+            throw new IllegalArgumentException("initial Capacity must be a power of two");
+        }
 
         this.loadFactor = loadFactor;
         //threshold = capacity *
         this.threshold = (int) ((float) initialCapacity * loadFactor);
+    }
+
+    /**
+     * check if num is power of two
+     * @param num
+     * returns true if power of two false otherwise
+     */
+    public boolean IsPowerOfTwo(int num){
+        return (num != 0) && ((num & (num-1)) == 0);
     }
 
     /**
@@ -95,21 +105,42 @@ public class HashJMap<K, V> implements JMap<K, V> {
     @Override
     public V put(K key, V value) {
         //validate key == null
-
+        if (key == null || value == null){
+            throw new NullPointerException("cannot accept null kays or values");
+        }
         //init this.table
-
+        if (this.table == null){
+            this.table = new Node[this.threshold];
+        }
         //using key.hashcode to compute the bucket location (this.table)
         //e.g. key.hashcode % (table.length -1)
-
+        int hash = key.hashCode() % (table.length - 1);
         //store KV in the table[index] (as Node<K,V>)
         //if key already exist (use #containsKey) update the value instead
         //if table[index] is taken, link the KV pair next to the exiting KV pair
-
+        if (containsKey(key)){
+            return this.table[hash].setValue(value);
+        }
+        if (this.table[hash] != null){
+            this.table[hash].next = new Node<>(hash, key, value, null);
+        }
+        this.table[hash] = new Node<>(hash, key, value, null);
         //add KV pair to this.entrySet
-
+        Map.Entry<K,V> entry = new AbstractMap.SimpleEntry<K, V>(key, value);
+        if (this.entrySet == null){
+            this.entrySet = new Set<Map.Entry<K, V>>();
+        }
+        this.entrySet.add(entry);
         //if this.size is greater than threshold, double table and re-hash
         //(iterate through this.entrySet for re-hashing )
-
+        this.size++;
+        if (this.size > threshold) {
+            this.threshold = threshold*2;
+            this.table = new Node[this.threshold];
+            for (Map.Entry<K,V> el: entrySet){
+                put(el.getKey(), el.getValue());
+            }
+        }
         return null;
     }
 
@@ -136,14 +167,24 @@ public class HashJMap<K, V> implements JMap<K, V> {
     @Override
     public boolean containsKey(Object key) {
         //validate key == null
-
+        if (key == null){
+            throw new NullPointerException("cannot accept null keys");
+        }
         //using key.hashcode to compute the bucket location (this.table)
         //e.g. key.hashcode % (table.length -1)
-
+        int hash = key.hashCode() % (table.length - 1);
         //if there is more than one Node<K,V> in the bucket,
         //traverse through the linkedList and use `equals` to find the key
-
-        return false;
+        boolean found = false;
+        Node<K,V> bucketnode = this.table[hash];
+        if (bucketnode != null){
+            do {
+                if (bucketnode.equals(key)){
+                    found = true;
+                }
+            } while(bucketnode.next != null);
+        }
+        return found;
     }
 
 
@@ -160,8 +201,24 @@ public class HashJMap<K, V> implements JMap<K, V> {
      */
     @Override
     public V get(Object key) {
-        //similar to #containsKey
-        return null;
+        if (key == null){
+            throw new NullPointerException("cannot accept null keys");
+        }
+        //using key.hashcode to compute the bucket location (this.table)
+        //e.g. key.hashcode % (table.length -1)
+        int hash = key.hashCode() % (table.length - 1);
+        //if there is more than one Node<K,V> in the bucket,
+        //traverse through the linkedList and use `equals` to find the key
+        V found = null;
+        Node<K,V> bucketnode = this.table[hash];
+        if (bucketnode != null){
+            do {
+                if (bucketnode.equals(key)){
+                    found = bucketnode.getValue();
+                }
+            } while(bucketnode.next != null);
+        }
+        return found;
     }
 
     /**
@@ -173,7 +230,7 @@ public class HashJMap<K, V> implements JMap<K, V> {
      */
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 
     /**
@@ -185,7 +242,22 @@ public class HashJMap<K, V> implements JMap<K, V> {
      */
     @Override
     public Set<Entry<K, V>> entrySet() {
-        return null;
+        return entrySet;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HashJMap)) return false;
+        HashJMap<?, ?> hashJMap = (HashJMap<?, ?>) o;
+        return Float.compare(hashJMap.loadFactor, loadFactor) == 0 && size == hashJMap.size && threshold == hashJMap.threshold && Arrays.equals(table, hashJMap.table) && Objects.equals(entrySet, hashJMap.entrySet);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(loadFactor, entrySet, size, threshold);
+        result = 31 * result + Arrays.hashCode(table);
+        return result;
     }
 
     /**
