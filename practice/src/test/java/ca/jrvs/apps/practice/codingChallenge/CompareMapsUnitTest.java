@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -92,5 +93,11 @@ public class CompareMapsUnitTest {
 
         assertTrue(compareMaps.compareMap2(map1, expected1));
         assertFalse(compareMaps.compareMap2(map2, expected2));
+
+        assertEquals((long) 1 ,(long) map1.get("a"));
+
+
+        assertFalse(map1.containsKey("g"));
+        assertTrue(map2.containsKey("b"));
     }
 }

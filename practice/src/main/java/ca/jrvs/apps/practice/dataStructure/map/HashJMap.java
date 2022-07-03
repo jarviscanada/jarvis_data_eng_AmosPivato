@@ -128,7 +128,7 @@ public class HashJMap<K, V> implements JMap<K, V> {
         //add KV pair to this.entrySet
         Map.Entry<K,V> entry = new AbstractMap.SimpleEntry<K, V>(key, value);
         if (this.entrySet == null){
-            this.entrySet = new Set<Map.Entry<K, V>>();
+            this.entrySet = new HashSet<>();
         }
         this.entrySet.add(entry);
         //if this.size is greater than threshold, double table and re-hash
@@ -175,16 +175,15 @@ public class HashJMap<K, V> implements JMap<K, V> {
         int hash = key.hashCode() % (table.length - 1);
         //if there is more than one Node<K,V> in the bucket,
         //traverse through the linkedList and use `equals` to find the key
-        boolean found = false;
         Node<K,V> bucketnode = this.table[hash];
         if (bucketnode != null){
             do {
-                if (bucketnode.equals(key)){
-                    found = true;
+                if (bucketnode.getKey().equals(key)){
+                    return true;
                 }
             } while(bucketnode.next != null);
         }
-        return found;
+        return false;
     }
 
 
@@ -209,16 +208,15 @@ public class HashJMap<K, V> implements JMap<K, V> {
         int hash = key.hashCode() % (table.length - 1);
         //if there is more than one Node<K,V> in the bucket,
         //traverse through the linkedList and use `equals` to find the key
-        V found = null;
         Node<K,V> bucketnode = this.table[hash];
         if (bucketnode != null){
             do {
-                if (bucketnode.equals(key)){
-                    found = bucketnode.getValue();
+                if (bucketnode.getKey().equals(key)){
+                    return bucketnode.getValue();
                 }
             } while(bucketnode.next != null);
         }
-        return found;
+        return null;
     }
 
     /**
