@@ -33,6 +33,16 @@ public class ListNode {
         return head;
     }
 
+    public void push(int val){
+        this.next = new ListNode(val);
+    }
+
+    public ListNode pop(){
+        ListNode node = this.next;
+        this.next = null;
+        return node;
+    }
+
     public static int[] BuildArray(ListNode head){
         List<Integer> list = new ArrayList<>();
         while (head != null){
