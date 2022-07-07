@@ -5,7 +5,7 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AmosPivato
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: My name is Amos Pivato, and I am a Toronto Metropolitan University Computer Science graduate with experience working in Data science and automation.  I then discovered the world of AI and machine learning and decided that I wanted to leverage my skills with these tools to help build solutions that could help improve the way we live our everyday lives.  Since then, I've committed myself to always being open to learning anything I can and finding new ways to accomplish tasks more efficiently.
+summary: My name is Amos Pivato, and I am a Toronto Metropolitan University Computer Science graduate with experience working in Data science and automation.  I then discovered the world of AI and machine learning and decided that I wanted to leverage my skills with these tools to help build solutions that could help improve the way we live our everyday lives.  Since then, I've worked in Python, Java, and VBA to build automated reporting and information consolidating tools, as well as developed applications from the ground up.  All of this practice has allowed me to grow my skills and proficiencies even further and become a confident and reliable back-end developper.
 
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
@@ -56,39 +56,39 @@ jarvis_projects:
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
-      - "Twitter App: Implemented a Twitter CRD app that works with Twitters REST API to post, show or delete tweets, Springboot was used to handle app dependencies and to make sure all the apps layers functioned accordingly, and was then deployed through dockerhub as a docker image for easy distributions and execution.."
-      - "JDBC App: Learned and implemented JDBC CRUD app using a test Database to use a DAO design pattern for easy application and database interactions."
-      - "Grep App: Implemented a GREP application using Maven in Java that could search for strings within a directories files using a matching regex pattern. Distributed over Dockerhub."
-  - name: "Springboot App"
-    git_url: "/springboot"
-    description: ""
-  - name: "Python Data Analytics"
-    git_url: "/python_data_anlytics"
-    description: ""
-  - name: "Hadoop"
-    git_url: "/hadoop"
-    description: ""
-  - name: "Spark"
-    git_url: "/spark"
-    description: ""
-  - name: "Cloud/DevOps"
-    git_url: "/cloud_devops"
-    description: ""
+      - "Twitter App: Implemented a Twitter CRD app used a Java DAO to interact with Twitter's REST API to post, show or delete tweets. Springboot was used to handle app dependencies and to ensure all the app layers functioned accordingly when run from the CLI.   The app was then built using Maven and then deployed through Dockerhub as a Docker image for easy distribution and execution."
+      - "JDBC App: Implemented and built, using Maven, a JDBC CRUD app using a PSQL docker instance Database that interacts with a DAO Datastructure for easy application layer and database management."
+      - "Grep App: Implemented a GREP application, built using Maven, in Java, using interface implementations that could search for strings recursively within directory files using a user supplied  matching regex pattern. The app was dockerized and deployed on Dockerhub for easy access and distribution."
+#  - name: "Springboot App"
+#    git_url: "/springboot"
+#    description: ""
+#  - name: "Python Data Analytics"
+#    git_url: "/python_data_anlytics"
+#    description: ""
+#  - name: "Hadoop"
+#    git_url: "/hadoop"
+#    description: ""
+#  - name: "Spark"
+#    git_url: "/spark"
+#    description: ""
+#  - name: "Cloud/DevOps"
+#    git_url: "/cloud_devops"
+#    description: ""
 
 # List of personal or academic projects
 # Feel free to add more projects
 highlighted_projects:
   - name: "Text Adventure Python Game"
-    description:  "Implemented a text adventure game with AI driven NPC using python class functionalities.  Designed UML architecture and class diagrams to facilitate implementation."
+    description:  "Implemented a text adventure game with AI-driven NPC's using Python class functionalities.  Designed UML architecture and class diagrams to facilitate implementation within an agile team framework.  We developped the game's story and level to be interactable by the player and kept track of the games states using a JSON file.  User actions were taken from terminal inputed strings and parsed to then be sent into the game engine loop to changes states and progress the adventure."
     #project name
   - name: "3d Robot Tower Defense Game"
    #URL is optional
    #git_url: "https://github.com/jarviscanada/jarvis_profile_builder"
    #The project description must start with an action verb (https://bit.ly/3guO98u)
-    description:  Designed a level driven 3d modeled tower shooter with textures.  Implemented a full hierarchical model design for animation driven gameplay.
-  - name: "Movie Reccomender System"
+    description: "Designed a level-driven 3d modeled tower shooter with textures in C++ using OpenGL libraries.  As a team, Models were implemented with a full hierarchical design for animation-driven gameplay using a life and points based gameply loop with a UI that displayed the game states.  Controls  were implemented using Keyboard and mouse event handlers, to allow for screen zooming, robot controls and game state reset's."
+  - name: "Movie Recommender System"
    #git_url:
-    description: "Designed, implemented and tested machine learning models to evaluate the accuracy of supervised machine learning for movie reccomendations."
+    description: "Designed, implemented, and tested two machine learning models to evaluate the accuracy of supervised learning Algorithms for movie recommendations in python.  Using the features from the Movielense Dataset, I decided to use the BPR, Bayesian personalized ratings pairwise loss, and the WARP, Weighted approximate rank pairwise loss, loss functions to conduct the learning regression steps for training the two approaches.  They were then tested against a testing set that was created beforehand using the same dataset  to check which model had higher results."
 
 #List of professional experience
 #The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
@@ -98,7 +98,10 @@ professional_experience:
   - title: "Software Developer"
     company: "Jarvis"
     duration: "2022-present"
-    description: "Developed projects relating to varying tech stacks that promoted learning in full stack development and and Big data"
+    description: 
+        "Implemented a series of back-end Java and Linux-based projects using industry-standard tools such as Docker, Maven, Springboot, and Junit.
+         Learned and applied multiple computer science concepts in a software development lifecycle context.
+         Collaborated in a team setting using the agile scrum framework to conduct daily meetings and project retrospectives."
   - title: "Underwriting Assistant"
     company: "Munich Re"
     duration: "2021-2021"
@@ -117,7 +120,7 @@ professional_experience:
 
 #List of edcuation
 education: 
-  - school_name: "Tronto Metropolitan University"
+  - school_name: "Toronto Metropolitan University"
     duration: "2017-2022"
     degree: "Bachelor Computer Science (honours)"
     department: "Department of Computer Science"
@@ -135,7 +138,7 @@ others:
   - title: "Certificates"
     #list of items
     bullets:
-      - "International Tawkwondo Federation Black Belt Instructor (2018)"
+      - "Licensed International Tawkwondo Federation Black Belt Instructor (2018)"
       - "French Billingual High school Diploma (2015)"
       - "Certified Standard First Aid & CPR/AED Level C (Canadian Red Cross, 2019)"
   - title: "Personal Skills"
@@ -143,6 +146,5 @@ others:
       - "fluent in French and knowledgable in Spanish"
   - title: "Activities/Hobbies"
     bullets:
-      - "Licensed Taekwondo Black Belt Instructor"
       - "Trombone player"
       - "Rock climbing"
