@@ -2,6 +2,12 @@ package ca.jrvs.apps.practice.codingChallenge;
 
 public class RotateString {
 
+    /**
+     * rotate string by having the front char moved to the back and check if the s and goal match after any amount of rotations
+     * @param s string to rotate
+     * @param goal string to check if rotate is equal to
+     * @return boolean true or false
+     */
     public boolean rotateString(String s, String goal) {
         String temps = s;
         boolean valid = false;
