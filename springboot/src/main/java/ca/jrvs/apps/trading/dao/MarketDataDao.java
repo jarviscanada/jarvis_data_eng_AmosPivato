@@ -9,19 +9,19 @@ import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
-import javax.swing.text.html.Option;
-import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
+import static ca.jrvs.apps.trading.model.Utils.Parse.toObject;
 
 /**
  * MarketDataDao is responsible for getting quotes from IEX
@@ -31,10 +31,10 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
 
     //private static final String IEX__BASE_PATH = "https://cloud.iexapis.com/stable";
 
-    private static final String IEX_FIND_PATH = "/Stock/%s/quote?token=";
+    //private static final String IEX_FIND_PATH = "/Stock/%s/quote?token=";
     private static final String IEX_BATCH_PATH = "/stock/market/batch?symbols=%s&types=quote&token=";
 
-    private final String IEX_FIND_URL;
+    //private final String IEX_FIND_URL;
     private final String IEX_BATCH_URL;
 
     private Logger logger = LoggerFactory.getLogger(MarketDataDao.class);
@@ -42,9 +42,10 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
 
     public MarketDataDao(HttpClientConnectionManager httpClientConnectionManager, MarketDataConfig marketdataConfig){
         this.httpClientConnectionManager = httpClientConnectionManager;
-        IEX_FIND_URL = marketdataConfig.getHost() + IEX_FIND_PATH + marketdataConfig.getToken();
+        //IEX_FIND_URL = marketdataConfig.getHost() + IEX_FIND_PATH + marketdataConfig.getToken();
         IEX_BATCH_URL = marketdataConfig.getHost() + IEX_BATCH_PATH + marketdataConfig.getToken();
     }
+
 
     /**
      * get an iexquote (helper method which class findallbyid)
@@ -56,8 +57,14 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
     @Override
     public Optional<IexQuote> findById(String ticker) {
         Optional<IexQuote> iexQuote;
-        List<IexQuote> quotes = findAllById(Collections.singletonList(ticker));
-
+        List<IexQuote> quotes;
+        try {
+            quotes = findAllById(Collections.singletonList(ticker));
+        }
+        catch (IllegalArgumentException e) {
+            logger.error("invalid ticker" + e);
+            return Optional.empty();
+        }
         if (quotes.size() == 0){
             return Optional.empty();
         }
@@ -70,6 +77,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
         return iexQuote;
     }
 
+
     /**
      * get quptes from IEX
      * @param iterable is a list of tickers
@@ -79,29 +87,39 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
      */
     @Override
     public List<IexQuote> findAllById(Iterable<String> iterable) {
-//create uri
-        if (iterable.length() == 0){
-            throw new IllegalArgumentException("invalid ticker");
+        //create uri
+        Long num = StreamSupport.stream(iterable.spliterator(), false).count();
+        if (num == 0){
+            throw new IllegalArgumentException("invalid tickers");
         }
-        String uri = String.format(this.IEX_FIND_URL, s);
 
         //confirm ticker string is valid and
         //get http response
+        List<IexQuote> responses = new ArrayList<>();
         String response;
-        try {
-            response = executeHttpGet(uri).orElseThrow(() -> new IllegalArgumentException("invalid ticker"));
-        }
-        catch (IllegalArgumentException e) {
-            logger.error("invalid ticker" + e);
-            return Optional.empty();
-        }
+        String tickers = StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.joining(","));
+        String uri = String.format(IEX_BATCH_URL, tickers);
+
+        response = executeHttpGet(uri).orElseThrow(() -> new IllegalArgumentException("invalid ticker"));
 
         //deserialyze http response to IexQuote object
         JSONObject IexQuoteJson = new JSONObject(response);
         if (IexQuoteJson.length() == 0){
-
+            throw new IllegalArgumentException("invalid Ticker");
         }
-        return null;
+
+        iterable.forEach(s -> {
+            try {
+                responses.add(toObject(((JSONObject) IexQuoteJson.get(s)).get("quote").toString(), IexQuote.class));
+            } catch (IOException e) {
+                throw new IllegalArgumentException("Ticker invalid", e);
+            }
+            catch (JSONException e){
+                throw new IllegalArgumentException("Ticker Invalid", e);
+            }
+        });
+
+        return responses;
     }
 
     /**
@@ -162,5 +180,49 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
      */
     private CloseableHttpClient getHttpClient(){
         return HttpClients.custom().setConnectionManager(httpClientConnectionManager).setConnectionManagerShared(true).build();
+    }
+    @Override
+    public long count() {
+        throw new UnsupportedOperationException("not implemented");
+    }
+
+    @Override
+    public void deleteById(String s) {
+        throw new UnsupportedOperationException("not implemented");
+    }
+
+    @Override
+    public void delete(IexQuote iexQuote) {
+        throw new UnsupportedOperationException("not implemented");
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends IexQuote> iterable) {
+        throw new UnsupportedOperationException("not implemented");
+    }
+
+    @Override
+    public void deleteAll() {
+        throw new UnsupportedOperationException("not implemented");
+    }
+
+    @Override
+    public boolean existsById(String s) {
+        throw new UnsupportedOperationException("not implemented");
+    }
+
+    @Override
+    public Iterable<IexQuote> findAll() {
+        throw new UnsupportedOperationException("not implemented");
+    }
+
+    @Override
+    public <S extends IexQuote> S save(S s) {
+        throw new UnsupportedOperationException("not implemented");
+    }
+
+    @Override
+    public <S extends IexQuote> Iterable<S> saveAll(Iterable<S> iterable) {
+        throw new UnsupportedOperationException("not implemented");
     }
 }
