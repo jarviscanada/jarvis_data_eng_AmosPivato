@@ -30,6 +30,6 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception{
-
+        //not sure what to run here but assuming its the quoteService?? which is odd
     }
 }

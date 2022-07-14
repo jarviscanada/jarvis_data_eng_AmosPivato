@@ -4,12 +4,14 @@ import ca.jrvs.apps.trading.dao.MarketDataDao;
 import ca.jrvs.apps.trading.dao.QuoteDao;
 import ca.jrvs.apps.trading.model.domain.IexQuote;
 import ca.jrvs.apps.trading.model.domain.Quote;
+import com.sun.org.apache.xpath.internal.operations.Quo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Transactional
@@ -43,7 +45,6 @@ public class QuoteService {
         } catch (Exception e){
             throw new IllegalArgumentException(tickers + "are invalid", e);
         }
-
     }
 
     /**
@@ -57,7 +58,13 @@ public class QuoteService {
      * @throws IllegalArgumentException for invalid input
      */
     public void updateMarketData(){
-
+        List<Quote> dbQuotes = findAllQuotes();
+        List<String> tickers = new ArrayList<>();
+        dbQuotes.forEach(q -> tickers.add(q.getTicker()));
+        List<IexQuote> iexQuotes = findIexQuotesByTickers(tickers);
+        List<Quote> quotes = new ArrayList<>();
+        iexQuotes.forEach(q -> quotes.add(buildQuoteFromIexQuote(q)));
+        quoteDao.saveAll(quotes);
     }
 
     /**
@@ -68,20 +75,37 @@ public class QuoteService {
      * @return
      */
     protected static Quote buildQuoteFromIexQuote(IexQuote iexQuote){
+        Quote quote = new Quote();
+        quote.setTicker(iexQuote.getSymbol());
+        if (iexQuote.getLatestPrice() ==  null){
+            logger.debug("stock market closed setting latest price to default value 0.0");
+            quote.setLastPrice(0.0);
+        }
+        else {
+            quote.setLastPrice(iexQuote.getLatestPrice());
+        }
+        quote.setBidPrice(iexQuote.getIexBidPrice());
+        quote.setBidSize(iexQuote.getIexBidSize());
+        quote.setAskPrice(iexQuote.getIexAskPrice());
+        quote.setAskSize(iexQuote.getIexAskSize());
 
+        return quote;
     }
 
     /**
      * validate (against IEX and save given tickers to quote table
      * - get iex quotes
-     *  - convert each iexquote to quote entity
-     *  - persist the quote to db
+     * - convert each iexquote to quote entity
+     * - persist the quote to db
      *
      * @param tickers a list of tickers/symboles
      * @throws  IllegalArgumentException if ticker is not found IEX
      */
     public List<Quote> saveQuotes(List<String> tickers){
-
+        List<IexQuote> iexQuotes = findIexQuotesByTickers(tickers);
+        List<Quote> quotes = new ArrayList<>();
+        iexQuotes.forEach(q -> quotes.add(buildQuoteFromIexQuote(q)));
+        return quoteDao.saveAll(quotes);
     }
 
     /**
@@ -89,11 +113,13 @@ public class QuoteService {
      * @param ticker
      */
     public Quote saveQuote(String ticker){
-
+        IexQuote iexQuote = findIexQuoteByTicker(ticker);
+        Quote quote = buildQuoteFromIexQuote(iexQuote);
+        return saveQuote(quote);
     }
 
     /**
-     * update a given qupte to quote table without validation
+     * update a given quote to quote table without validation
      * @param quote entity
      *
      */
@@ -101,6 +127,10 @@ public class QuoteService {
         return quoteDao.save(quote);
     }
 
+    /**
+     * find all quotes from the quote table
+     * @return a list of quotes
+     */
     public List<Quote> findAllQuotes(){
         return quoteDao.findAll();
     }

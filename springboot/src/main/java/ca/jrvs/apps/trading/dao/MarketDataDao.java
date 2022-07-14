@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -40,6 +41,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
     private Logger logger = LoggerFactory.getLogger(MarketDataDao.class);
     private HttpClientConnectionManager httpClientConnectionManager;
 
+    @Autowired
     public MarketDataDao(HttpClientConnectionManager httpClientConnectionManager, MarketDataConfig marketdataConfig){
         this.httpClientConnectionManager = httpClientConnectionManager;
         //IEX_FIND_URL = marketdataConfig.getHost() + IEX_FIND_PATH + marketdataConfig.getToken();
