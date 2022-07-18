@@ -97,9 +97,12 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
 
         //confirm ticker string is valid and
         //get http response
+        List<String> iterables = new ArrayList<>();
+        iterable.forEach(t -> iterables.add(t.toUpperCase()));
         List<IexQuote> responses = new ArrayList<>();
         String response;
-        String tickers = StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.joining(","));
+        String tickers = StreamSupport.stream(iterables.spliterator(), false).collect(Collectors.joining(","));
+        logger.info(tickers);
         String uri = String.format(IEX_BATCH_URL, tickers);
 
         response = executeHttpGet(uri).orElseThrow(() -> new IllegalArgumentException("invalid ticker"));
@@ -110,7 +113,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
             throw new IllegalArgumentException("invalid Ticker");
         }
 
-        iterable.forEach(s -> {
+        iterables.forEach(s -> {
             try {
                 responses.add(toObject(((JSONObject) IexQuoteJson.get(s)).get("quote").toString(), IexQuote.class));
             } catch (IOException e) {

@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-public class AppConfig {
+public class TestConfig {
 
     private Logger logger = LoggerFactory.getLogger(AppConfig.class);
 
@@ -24,22 +24,22 @@ public class AppConfig {
     private String user;
     private String password;
 
-//    @Bean
-//    public DataSource dataSource(){
-//        jdbcUrl = "jdbc:postgresql://" +
-//                System.getenv("PSQL_HOST") + ":" +
-//                System.getenv("PSQL_PORT") + ":" +
-//                "/" +
-//                System.getenv("PSQL_DB");
-//        user = System.getenv("PSQL_USER");
-//        password = System.getenv("PSQL_PASSWORD");
-//
-//        BasicDataSource basicDataSource = new BasicDataSource();
-//        basicDataSource.setUrl(jdbcUrl);
-//        basicDataSource.setUsername(user);
-//        basicDataSource.setPassword(password);
-//        return basicDataSource;
-//    }
+    @Bean
+    public DataSource dataSource(){
+        jdbcUrl = "jdbc:postgresql://" +
+                System.getenv("PSQL_HOST") + ":" +
+                System.getenv("PSQL_PORT") + ":" +
+                "/" +
+                System.getenv("PSQL_DB");
+        user = System.getenv("PSQL_USER");
+        password = System.getenv("PSQL_PASSWORD");
+
+        BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setUrl(jdbcUrl);
+        basicDataSource.setUsername(user);
+        basicDataSource.setPassword(password);
+        return basicDataSource;
+    }
 
     @Bean
     public MarketDataConfig marketDataConfig(){
