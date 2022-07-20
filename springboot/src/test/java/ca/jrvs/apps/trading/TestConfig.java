@@ -11,11 +11,13 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
 @Configuration
+@ComponentScan(basePackages = {"ca.jrvs.apps.trading.dao", "ca.jrvs.apps.trading.service"})
 public class TestConfig {
 
     private Logger logger = LoggerFactory.getLogger(AppConfig.class);
@@ -28,7 +30,7 @@ public class TestConfig {
     public DataSource dataSource(){
         jdbcUrl = "jdbc:postgresql://" +
                 System.getenv("PSQL_HOST") + ":" +
-                System.getenv("PSQL_PORT") + ":" +
+                System.getenv("PSQL_PORT") +
                 "/" +
                 System.getenv("PSQL_DB");
         user = System.getenv("PSQL_USER");
@@ -38,6 +40,8 @@ public class TestConfig {
         basicDataSource.setUrl(jdbcUrl);
         basicDataSource.setUsername(user);
         basicDataSource.setPassword(password);
+
+        basicDataSource.setDriverClassName("org.postgresql.Driver");
         return basicDataSource;
     }
 

@@ -24,22 +24,22 @@ public class AppConfig {
     private String user;
     private String password;
 
-//    @Bean
-//    public DataSource dataSource(){
-//        jdbcUrl = "jdbc:postgresql://" +
-//                System.getenv("PSQL_HOST") + ":" +
-//                System.getenv("PSQL_PORT") + ":" +
-//                "/" +
-//                System.getenv("PSQL_DB");
-//        user = System.getenv("PSQL_USER");
-//        password = System.getenv("PSQL_PASSWORD");
-//
-//        BasicDataSource basicDataSource = new BasicDataSource();
-//        basicDataSource.setUrl(jdbcUrl);
-//        basicDataSource.setUsername(user);
-//        basicDataSource.setPassword(password);
-//        return basicDataSource;
-//    }
+    @Bean
+    public DataSource dataSource(){
+        jdbcUrl = "jdbc:postgresql://" +
+                System.getenv("PSQL_HOST") + ":" +
+                System.getenv("PSQL_PORT") + ":" +
+                "/" +
+                System.getenv("PSQL_DB");
+        user = System.getenv("PSQL_USER");
+        password = System.getenv("PSQL_PASSWORD");
+
+        BasicDataSource basicDataSource = new BasicDataSource();
+        basicDataSource.setUrl(jdbcUrl);
+        basicDataSource.setUsername(user);
+        basicDataSource.setPassword(password);
+        return basicDataSource;
+    }
 
     @Bean
     public MarketDataConfig marketDataConfig(){
@@ -59,23 +59,4 @@ public class AppConfig {
         return cm;
     }
 
-//    @Bean
-//    public MarketDataDao marketDataDao(HttpClientConnectionManager httpClientConnectionManager, MarketDataConfig marketDataConfig){
-//        return new MarketDataDao(httpClientConnectionManager, marketDataConfig);
-//    }
-//
-//    @Bean
-//    public QuoteDao quoteDao(DataSource dataSource){
-//        return new QuoteDao(dataSource);
-//    }
-//
-//    @Bean
-//    public QuoteService quoteService(QuoteDao quoteDao, MarketDataDao marketDataDao){
-//        return new QuoteService(quoteDao, marketDataDao);
-//    }
-//
-//    @Bean
-//    public QuoteController quoteController(QuoteService quoteService){
-//        return new QuoteController(quoteService);
-//    }
 }

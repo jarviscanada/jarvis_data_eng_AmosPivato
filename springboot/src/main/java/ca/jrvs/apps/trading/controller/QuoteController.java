@@ -32,46 +32,46 @@ public class QuoteController {
         }
     }
 
-//    @PutMapping(path="/iexMarketData")
-//    @ResponseStatus(HttpStatus.OK)
-//    public void updateMarketData(){
-//        try {
-//        quoteService.updateMarketData();
-//        } catch (Exception e){
-//            throw ResponseExceptionUtil.getResponseStatusException(e);
-//        }
-//    }
-//
-//    @PutMapping(path = "/")
-//    @ResponseStatus(HttpStatus.OK)
-//    @ResponseBody
-//    public Quote putQuote(@RequestBody Quote quote){
-//        try {
-//            return quoteService.saveQuote(quote);
-//        } catch (Exception e){
-//            throw  ResponseExceptionUtil.getResponseStatusException(e);
-//        }
-//    }
-//
-//    @PostMapping(path = "/tickerId/{TickerId}")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    @ResponseBody
-//    public Quote createQuote(@PathVariable String tickerId) {
-//        try {
-//            return quoteService.saveQuote(tickerId);
-//        } catch (Exception e){
-//            throw ResponseExceptionUtil.getResponseStatusException(e);
-//        }
-//    }
-//
-//    @GetMapping(path = "/dailyList")
-//    @ResponseStatus(HttpStatus.OK)
-//    @ResponseBody
-//    public List<Quote> getDailyList(){
-//        try {
-//            return quoteService.findAllQuotes();
-//        } catch (Exception e){
-//            throw ResponseExceptionUtil.getResponseStatusException(e);
-//        }
-//    }
+    @PutMapping(path="/iexMarketData")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateMarketData(){
+        try {
+        quoteService.updateMarketData();
+        } catch (Exception e){
+            throw ResponseExceptionUtil.getResponseStatusException(e);
+        }
+    }
+
+    @PutMapping(path = "/")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Quote putQuote(@RequestBody Quote quote){
+        try {
+            return quoteService.saveQuote(quote);
+        } catch (Exception e){
+            throw  ResponseExceptionUtil.getResponseStatusException(e);
+        }
+    }
+
+    @PostMapping(path = "/tickerId/{TickerId}")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public Quote createQuote(@PathVariable String tickerId) {
+        try {
+            return quoteService.saveQuote(tickerId);
+        } catch (Exception e){
+            throw ResponseExceptionUtil.getResponseStatusException(e);
+        }
+    }
+
+    @GetMapping(path = "/dailyList")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Quote> getDailyList(){
+        try {
+            return quoteService.findAllQuotes();
+        } catch (Exception e){
+            throw ResponseExceptionUtil.getResponseStatusException(e);
+        }
+    }
 }

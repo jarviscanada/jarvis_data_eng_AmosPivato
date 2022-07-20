@@ -9,6 +9,16 @@ public class Quote implements Entity<String>{
     private Double askPrice;
     private Long askSize;
 
+
+//    public Quote() {
+//        this.ticker = null;
+//        this.lastPrice = null;
+//        this.bidPrice = null;
+//        this.bidSize = null;
+//        this.askPrice = null;
+//        this.askSize = null;
+//    }
+//
 //    public Quote(String ticker, Double lastPrice, Double bidPrice, Long bidSize, Double askPrice, Long askSize) {
 //        this.ticker = ticker;
 //        this.lastPrice = lastPrice;
