@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
+import java.util.List;
 import java.util.Optional;
 
 public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepository<T, Integer> {
@@ -75,5 +76,34 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
             logger.debug("Can't find id");
         }
         return entity;
+    }
+
+    @Override
+    public boolean existsById(Integer id){
+
+    }
+
+    @Override
+    public List<T> findAll(){
+
+    }
+
+    public List<T> findAllById(Iterable<Integer> ids){
+
+    }
+
+    @Override
+    public void deleteById(Integer id){
+
+    }
+
+    @Override
+    public long count(){
+
+    }
+
+    @Override
+    public void deleteAll(){
+
     }
 }
