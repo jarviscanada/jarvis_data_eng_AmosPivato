@@ -1,6 +1,7 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Entity;
+import ca.jrvs.apps.trading.model.domain.Quote;
 import org.apache.juli.logging.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,7 +40,7 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
      */
     @Override
     public <S extends T> S save(S entity){
-        if (existsBydId(entity.getId())){
+        if (existsById(entity.getId())){
             if (updateOne(entity) != 1){
                 throw  new DataRetrievalFailureException("unable to update quote");
             }
@@ -66,6 +68,11 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
      */
     abstract public  int updateOne(T entity);
 
+    /**
+     * finds trader by id
+     * @param id trader id
+     * @return trader object of id
+     */
     @Override
     public Optional<T> findById(Integer id){
         Optional<T> entity = Optional.empty();
@@ -78,32 +85,91 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
         return entity;
     }
 
+    /**
+     * checks if trader exists
+     * @param id of trader
+     * @return boolean of trader existance
+     */
     @Override
     public boolean existsById(Integer id){
-
+        boolean exists = false;
+        String selectSql = "SELECT EXISTS(SELECT 1 FROM " + getTableName() + " WHERE " + getIdColumnName() + " =?)";
+        try {
+            exists = getJdbcTemplate().queryForObject(selectSql, boolean.class, id);
+        } catch (Exception e){
+            logger.debug("could not execute query", e);
+        }
+        return exists;
     }
 
+    /**
+     * finds all traders in the db
+     * @return a list of all traders
+     */
     @Override
     public List<T> findAll(){
-
+        List<T> founds;
+        String selectSql = "SELECT * FROM " + getTableName();
+        try {
+            founds = getJdbcTemplate().query(selectSql, BeanPropertyRowMapper.newInstance(getEntityClass()));
+        }
+        catch (Exception e){
+            throw new DataRetrievalFailureException("failed to access data", e);
+        }
+        return founds;
     }
 
+    /**
+     * finds all traders from list of ids
+     * @param ids of traders to find
+     * @return list of traders found
+     */
     public List<T> findAllById(Iterable<Integer> ids){
-
+        List<T> founds = new ArrayList<>();
+        ids.forEach(id -> founds.add(findById(id).get()));
+        return founds;
     }
 
+    /**
+     * delete trader from db by id
+     * @param id of trader
+     */
     @Override
     public void deleteById(Integer id){
-
+        String deleteSql = "DELETE FROM " + getTableName() + " WHERE " + getIdColumnName() + " =?";
+        try {
+            getJdbcTemplate().update(deleteSql);
+        } catch (Exception e){
+            logger.debug("unable to update entry", e);
+        }
     }
 
+    /**
+     * counts all traders in db
+     * @return count of all traders
+     */
     @Override
     public long count(){
-
+        Long count = 0l;
+        String selectSql = "SELECT COUNT(*) FROM " + getTableName();
+        try {
+            count = getJdbcTemplate().queryForObject(selectSql, Long.class);
+        } catch (Exception e){
+            logger.debug("Unable to process query", e);
+        }
+        return count;
     }
 
+    /**
+     * deletes all traders from db
+     */
     @Override
     public void deleteAll(){
-
+        String deleteSql = "DELETE FROM " + getTableName();
+        try {
+            getJdbcTemplate().update(deleteSql);
+        } catch (Exception e){
+            logger.debug("unable to delete", e);
+        }
     }
 }
