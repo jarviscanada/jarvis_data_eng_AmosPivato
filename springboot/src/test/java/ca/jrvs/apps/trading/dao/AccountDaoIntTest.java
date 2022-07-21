@@ -44,8 +44,8 @@ public class AccountDaoIntTest {
 
     @Test
     public void findAllById(){
-        List<Account> traders = Lists.newArrayList(accountDao.findAllById(Arrays.asList(savedAccount.getId(), -1)));
-        assertEquals(1, traders.size());
-        assertEquals(savedAccount.getAmount(), traders.get(0).getAmount());
+        List<Account> accounts = Lists.newArrayList(accountDao.findAllById(Arrays.asList(savedAccount.getId(), -1)));
+        assertEquals(1, accounts.size());
+        assertEquals(savedAccount.getAmount(), accounts.get(0).getAmount());
     }
 }
