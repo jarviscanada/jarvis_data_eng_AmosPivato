@@ -1,0 +1,151 @@
+# Preferred name (Characters only)
+name: "Amos Pivato"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AmosPivato
+
+# Introduce yourself, and your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: My name is Amos Pivato, and I am a Toronto Metropolitan University Computer Science graduate with experience working in Data science and automation.  I then discovered the world of AI and machine learning and decided that I wanted to leverage my skills with these tools to help build solutions that could help improve the way we live our everyday lives.  Since that day, I've worked in Python, Java, and VBA to develop automated reporting and information consolidating tools, such as automated budgeting tools and movie recommenders, to grow and progress my knowledge in AI and machine learning.  All of this practice has also allowed me to grow my skills, proficiencies, and experiences even further to become a confident and reliable back-end developer.
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+# At least 5 skills
+  proficient:
+    - Python
+    - C/C++
+    - Visual Basic
+    - Linux/Bash
+    - RDBMS/SQL
+    - Agile/Scrum
+    - Git    
+# At least 5 skills
+  competent:
+    - Java
+    - JavaScript/Jquery
+    - HTML/CSS
+    - DAX/M
+    - Power BI/Power Query
+    - SAP
+    - R
+    - Haskel
+    - Erlang/Rust/Prolog
+    - Oracle
+    - PSQL
+    - DOCKER
+    - JUNIT
+#  At least 5 skills
+  familiar:
+    - React/React Native
+    - Android studio
+    - Selenium
+    - PHP/ASP
+    - Ruby
+    - Perl
+    - Arduino/Raspberry Pi
+
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "/linux_sql"
+#     The project description allows hiring managers to understand your project and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#     The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: 
+      - "Implemented a Linux Cluster monitoring agent, using automated Bash commands, that retrieves and stores local network node hardware spec and usage data into a PSQL docker instance." 
+      - "Designed the database table schemas for host info and host usage node data, and business problem queries that will provide information from this stored data within the RDBMS."
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
+      - "Twitter App: Implemented a Twitter CRD app that used a Java DAO to interact with Twitter's REST API to post, show, or delete tweets. Springboot was used to handle app dependencies and to ensure all the app layers functioned accordingly when run from the CLI.   The app was then built using Maven and then deployed through Dockerhub as a Docker image for easy distribution and execution."
+      - "JDBC App: Implemented and built, using Maven, a JDBC CRUD app using a PSQL docker instance Database that interacts with a DAO Data structure for easy application layer and database management."
+      - "Grep App: Implemented a GREP application, built using Maven, in Java, using interface implementations that could search for strings recursively within directory files using a user-supplied matching regex pattern. The app was dockerized and deployed on Dockerhub for easy access and distribution."
+#  - name: "Springboot App"
+#    git_url: "/springboot"
+#    description: ""
+#  - name: "Python Data Analytics"
+#    git_url: "/python_data_anlytics"
+#    description: ""
+#  - name: "Hadoop"
+#    git_url: "/hadoop"
+#    description: ""
+#  - name: "Spark"
+#    git_url: "/spark"
+#    description: ""
+#  - name: "Cloud/DevOps"
+#    git_url: "/cloud_devops"
+#    description: ""
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+  - name: "Text Adventure Python Game"
+    description:  "Implemented a text adventure game with AI-driven NPCs using Python class functionalities.  Designed UML architecture and class diagrams to facilitate implementation within an agile team framework.  We developed the game's story and level to be interactable by the player and kept track of the game's states using a JSON file.  User actions were taken from terminal input strings and parsed to then be sent into the game engine loop to change states and progress the adventure."
+  #  project name
+  - name: "3d Robot Tower Defense Game"
+  # URL is optional
+ #  git_url: "https://github.com/jarviscanada/jarvis_profile_builder"
+ #  The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Designed a level-driven 3d modeled tower shooter with textures in C++ using OpenGL libraries.  As a team, Models were implemented with a full hierarchical design for animation-driven gameplay using life and points-based gameplay loop with a UI that displayed the game states.  Controls  were implemented using Keyboard and mouse event handlers, to allow for screen zooming, robot controls, and game state resets."
+  - name: "Movie Recommender System"
+ #  git_url:
+    description: "Designed, implemented, and tested two machine learning models to evaluate the accuracy of supervised learning Algorithms for movie recommendations in Python.  Using the features from the Movielense Dataset, I decided to use the BPR, Bayesian personalized ratings pairwise loss, and the WARP, Weighted approximate rank pairwise loss, loss functions to conduct the learning regression steps for training the two approaches.  They were then tested against a testing set that was created beforehand using the same dataset  to check which model had higher results."
+
+#List of professional experience
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+# Write your Jarvis role as a professional experience rather than training.
+  - title: "Software Developer"
+    company: "Jarvis"
+    duration: "2022-present"
+    description: 
+        "Implemented a series of back-end Java and Linux-based projects using industry-standard tools such as Docker, Maven, Springboot, and Junit.
+         Learned and applied multiple computer science concepts in a software development lifecycle context.
+         Collaborated in a team setting using the agile scrum framework to conduct daily meetings and project retrospectives."
+  - title: "Underwriting Assistant"
+    company: "Munich Re"
+    duration: "2021-2021"
+    description: 
+       "Designed and implemented queries to pull relevant data from online warehouses into Power BI.
+       Arranged and formatted tables to ensure the information pulled from the data reconciles with department standards.
+       Documented query details, design, and functionality for future development."
+  - title: "Inspection and Claims Administrative assistant"
+    company: "HSB BII"
+    duration: "2016-2020"
+    description: 
+       "Automated business analysis report using VBA scripts.
+       Helped in sorting and analysis of client company transactions.
+       Worked with a team to analyze and automate accounting data reports using Power Query and Power BI
+       Collaborated in a team to design and implement an automated policy pricing tool in VBA and Power Query, and create respective documentation"
+
+#List of education
+education: 
+  - school_name: "Toronto Metropolitan University"
+    duration: "2017-2022"
+    degree: "Bachelor of Computer Science (honors)"
+    department: "Department of Computer Science"
+    awards_achievements:
+  - school_name: "University of Toronto Scarborough"
+    duration: "2015-2016"
+    degree: "Environmental Science"
+    department: "Department of Physical & Environmental Science"
+    awards_achievements:
+      - "3rd place in UTSC's FinanceHacks Hackathon" 
+
+#Optional section
+others:
+   # category
+  - title: "Certificates"
+   # list of items
+    bullets:
+      - "Licensed International Taekwondo Federation Black Belt Instructor (2018)"
+      - "French Billingual High school Diploma (2015)"
+      - "Certified Standard First Aid & CPR/AED Level C (Canadian Red Cross, 2019)"
+  - title: "Personal Skills"
+    bullets:
+      - "Fluent in French and knowledgable in Spanish"
+  - title: "Activities/Hobbies"
+    bullets:
+      - "Trombone player"
+      - "Rock climbing"
+
