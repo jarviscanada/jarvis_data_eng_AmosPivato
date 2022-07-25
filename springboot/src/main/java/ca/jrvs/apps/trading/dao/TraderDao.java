@@ -24,7 +24,7 @@ public class TraderDao extends JdbcCrudDao<Trader> {
     @Autowired
     public TraderDao(DataSource dataSource){
         this.jdbcTemplate = new JdbcTemplate(dataSource);
-        this.simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME);
+        this.simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName(getTableName()).usingGeneratedKeyColumns(getIdColumnName());
     }
 
     @Override

@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -28,21 +29,61 @@ public class PositionDao extends JdbcCrudDao<Position>{
 
     @Override
     public JdbcTemplate getJdbcTemplate() {
-        return null;
+        return jdbcTemplate;
+    }
+
+    @Override
+    public SimpleJdbcInsert getSimpleJdbcInsert() {
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    @Override
+    public int updateOne(Position entity) {
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    @Override
+    public <S extends Position> Iterable<S> saveAll(Iterable<S> iterable) {
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    @Override
+    public void delete(Position position) {
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends Position> iterable) {
+        throw new UnsupportedOperationException("Not implemented");
     }
 
     @Override
     public String getTableName() {
-        return null;
+        return TABLE_NAME;
     }
 
     @Override
     public String getIdColumnName() {
-        return null;
+        return ID_COLUMN;
     }
 
     @Override
     Class<Position> getEntityClass() {
-        return null;
+        return Position.class;
+    }
+
+    @Override
+    public <S extends Position> S save(S entity) {
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    @Override
+    public void deleteAll() {
+        throw new UnsupportedOperationException("Not implemented");
     }
 }

@@ -1,8 +1,6 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Entity;
-import ca.jrvs.apps.trading.model.domain.Quote;
-import org.apache.juli.logging.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataRetrievalFailureException;
@@ -136,7 +134,7 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
      */
     @Override
     public void deleteById(Integer id){
-        String deleteSql = "DELETE FROM " + getTableName() + " WHERE " + getIdColumnName() + " =?";
+        String deleteSql = "DELETE FROM " + getTableName() + " WHERE " + getIdColumnName() + " ="+id;
         try {
             getJdbcTemplate().update(deleteSql);
         } catch (Exception e){

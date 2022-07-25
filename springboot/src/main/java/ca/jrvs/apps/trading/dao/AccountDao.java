@@ -24,7 +24,7 @@ public class AccountDao extends JdbcCrudDao<Account>{
     @Autowired
     public AccountDao(DataSource dataSource){
         this.jdbcTemplate = new JdbcTemplate(dataSource);
-        this.simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME);
+        this.simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME).usingGeneratedKeyColumns(getIdColumnName());;
     }
 
     @Override

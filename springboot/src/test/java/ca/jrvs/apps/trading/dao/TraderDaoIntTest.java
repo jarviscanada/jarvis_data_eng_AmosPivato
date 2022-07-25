@@ -12,9 +12,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -30,12 +33,15 @@ public class TraderDaoIntTest {
     private Trader savedTrader;
 
     @Before
-    public void insertOne(){
+    public void insertOne() throws ParseException {
         savedTrader = new Trader();
         savedTrader.setCountry("Canada");
-        savedTrader.setId(1);
+        savedTrader.setId(2);
         savedTrader.setEmail("bob@gmail.com");
-        savedTrader.setDob(LocalDate.now()+"T"+ LocalTime.now());
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        String dateS = sdf.format(date);
+        savedTrader.setDob(sdf.parse(dateS));
         savedTrader.setFirst_name("Bob");
         savedTrader.setLast_name("Billy");
         traderDao.save(savedTrader);
@@ -48,8 +54,14 @@ public class TraderDaoIntTest {
 
     @Test
     public void findAllById(){
-        List<Trader> traders = Lists.newArrayList(traderDao.findAllById(Arrays.asList(savedTrader.getId(), -1)));
+        List<Trader> traders = Lists.newArrayList(traderDao.findAllById(Arrays.asList(savedTrader.getId())));
         assertEquals(1, traders.size());
         assertEquals(savedTrader.getCountry(), traders.get(0).getCountry());
+    }
+
+    @Test
+    public void findbyId() {
+        Trader found = traderDao.findById(1).get();
+        assertTrue(found.getCountry().equals("Canada"));
     }
 }

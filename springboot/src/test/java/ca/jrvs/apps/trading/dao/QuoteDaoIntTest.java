@@ -35,7 +35,7 @@ public class QuoteDaoIntTest {
         savedQuote.setAskSize(10l);
         savedQuote.setBidPrice(10.2d);
         savedQuote.setBidSize(10l);
-        savedQuote.setId("aapl");
+        savedQuote.setId("TSLA");
         savedQuote.setLastPrice(10.1d);
         quoteDao.save(savedQuote);
     }
@@ -50,7 +50,7 @@ public class QuoteDaoIntTest {
         //test for save()
         savedQuote.setLastPrice(20.1d);
         quoteDao.save(savedQuote);
-        Quote quote = quoteDao.findById("aapl").get();
+        Quote quote = quoteDao.findById("TSLA").get();
         assertTrue(20.1 == quote.getLastPrice());
     }
 
@@ -82,7 +82,7 @@ public class QuoteDaoIntTest {
     @Test
     public void testC() {
         //test for find by id
-        Optional<Quote> found = quoteDao.findById("aapl");
+        Optional<Quote> found = quoteDao.findById("TSLA");
         Optional<Quote> notfound = quoteDao.findById("aaple");
         assertTrue(found.isPresent());
         assertFalse(notfound.isPresent());
@@ -91,7 +91,7 @@ public class QuoteDaoIntTest {
     @Test
     public void testD() {
         //test for existsbyid
-        assertTrue(quoteDao.existsById("aapl"));
+        assertTrue(quoteDao.existsById("TSLA"));
         assertFalse(quoteDao.existsById("apple"));
     }
 
