@@ -4,10 +4,12 @@ import ca.jrvs.apps.trading.dao.AccountDao;
 import ca.jrvs.apps.trading.dao.PositionDao;
 import ca.jrvs.apps.trading.dao.SecurityOrderDao;
 import ca.jrvs.apps.trading.dao.TraderDao;
-import ca.jrvs.apps.trading.model.domain.Account;
-import ca.jrvs.apps.trading.model.domain.Trader;
+import ca.jrvs.apps.trading.model.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TraderAccountService {
@@ -39,25 +41,75 @@ public class TraderAccountService {
      * @throws IllegalArgumentException if a trader has nll fields or id is not null.
      */
     public TraderAccountView createTraderAndAccount(Trader trader){
+        if (!validateTrader(trader)){
+            throw new IllegalArgumentException("trader has null fields or id is not null");
+        }
+        Trader savedTrader = traderDao.save(trader);
+        Account account = new Account();
+        account.setId(savedTrader.getId());
+        account.setTrader_id(savedTrader.getId());
+        account.setAmount(0d);
+        Account savedAccount = accountDao.save(account);
+       return new TraderAccountView(savedTrader, savedAccount);
+    }
 
+    /**
+     * helper method to validate trader
+     * @param trader
+     * @return boolean
+     */
+    private boolean validateTrader(Trader trader){
+        if (trader.getId() != null || trader.getCountry() == null || trader.getDob() == null || trader.getEmail() == null || trader.getFirst_name() == null || trader.getLast_name() == null){
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     /**
      * A trader can be deleted iff it has no open position and 0 cash balance
-     * -validate traderId;
+     * - validate traderId;
      * - get trader account by traderId and check account balance
-     * -get positions by accountId and check positions
+     * - get positions by accountId and check positions
      * - delete all security orders, account, trader (in this order)
      * @param traderId
+     * @throws IllegalArgumentException if traderid is null or not found or unable to delete
      */
     public void deleteTraderById(Integer traderId){
-
+        if (traderId == null){
+            throw new IllegalArgumentException("traderId cannot be null");
+        }
+        if (!traderDao.existsById(traderId)){
+             throw new IllegalArgumentException("trader id does not exist");
+        }
+        Trader trader = traderDao.findById(traderId).get();
+        Account account = accountDao.findById(trader.getId()).get();
+        if (account.getAmount() !=0){
+            throw new IllegalArgumentException("account balance is not 0");
+        }
+        Optional<Position> position = positionDao.findById(account.getId());
+        if (position.isPresent()){
+            if (position.get().getPosition() != 0){
+                throw new IllegalArgumentException("there are still open position");
+            }
+        }
+        List<SecurityOrder> orders = securityOrderDao.findAll();
+        if (orders.size() != 0) {
+            for (SecurityOrder order : orders) {
+                if (order.getAccount_id() == account.getId()) {
+                    securityOrderDao.deleteById(order.getId());
+                }
+            }
+        }
+        accountDao.deleteById(account.getId());
+        traderDao.deleteById(trader.getId());
     }
 
     /**
      * Deposit a fund to an account by traderId
      * -validate user nput
-     * - account = accountDap.findbytraderid
+     * - account = accountDao.findbytraderid
      * - accountdap.updateAmountByid
      *
      * @param traderId must not be null
@@ -66,7 +118,16 @@ public class TraderAccountService {
      * @throws IllegalArgumentException if trader is null or not found and fund is less or equal to 0
      */
     public Account deposit(Integer traderId, Double fund){
-
+        if (traderId == null || fund == 0d){
+            throw new IllegalArgumentException("trader must not be null and fund myst be greater than 0");
+        }
+        if (!traderDao.existsById(traderId)){
+            throw new IllegalArgumentException("trader id does not exist");
+        }
+        Account account = accountDao.findById(traderId).get();
+        account.setAmount(account.getAmount()+fund);
+        Integer num = accountDao.updateByAccount(account);
+        return account;
     }
 
     /**
@@ -80,6 +141,18 @@ public class TraderAccountService {
      * @return
      */
     public Account withdraw(Integer traderId, Double fund){
-
+        if (traderId == null || fund == 0d){
+            throw new IllegalArgumentException("trader must not be null and fund myst be greater than 0");
+        }
+        if (!traderDao.existsById(traderId)){
+            throw new IllegalArgumentException("trader id does not exist");
+        }
+        Account account = accountDao.findById(traderId).get();
+        if (account.getAmount() < fund){
+            throw new IllegalArgumentException("not enough funds in account to withdraw");
+        }
+        account.setAmount(account.getAmount()-fund);
+        Integer num = accountDao.updateByAccount(account);
+        return account;
     }
 }

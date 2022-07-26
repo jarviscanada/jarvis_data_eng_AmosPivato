@@ -1,6 +1,7 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Account;
+import ca.jrvs.apps.trading.model.domain.Quote;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,5 +71,15 @@ public class AccountDao extends JdbcCrudDao<Account>{
     @Override
     public void deleteAll(Iterable<? extends Account> iterable) {
         throw new UnsupportedOperationException("Not implemented");
+    }
+
+    public int updateByAccount(Account account){
+        String update_sql = "UPDATE "+ getTableName() +" SET  trader_id=?, amount=? WHERE " + getIdColumnName() + "=?"+ ";";
+        return getJdbcTemplate().update(update_sql, makeUpdateValues(account));
+    }
+
+    private Object[] makeUpdateValues(Account account){
+        Object[] values = {account.getTrader_id(), account.getAmount(), account.getId()};
+        return values;
     }
 }
