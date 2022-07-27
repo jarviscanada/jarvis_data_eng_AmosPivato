@@ -17,7 +17,7 @@ public class Application implements CommandLineRunner {
 
     private Logger logger = LoggerFactory.getLogger(Application.class);
 
-//    @Value("${app.init.dailyList}")
+//    @Value("${app.init.dailyList}") //requires a application.properties file in resource dir same level as java dir
 //    private String[] initDailyList;
 
     @Autowired

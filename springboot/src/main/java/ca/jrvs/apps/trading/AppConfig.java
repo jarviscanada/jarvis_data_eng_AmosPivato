@@ -28,7 +28,7 @@ public class AppConfig {
     public DataSource dataSource(){
         jdbcUrl = "jdbc:postgresql://" +
                 System.getenv("PSQL_HOST") + ":" +
-                System.getenv("PSQL_PORT") + ":" +
+                System.getenv("PSQL_PORT") +
                 "/" +
                 System.getenv("PSQL_DB");
         user = System.getenv("PSQL_USER");
@@ -38,6 +38,7 @@ public class AppConfig {
         basicDataSource.setUrl(jdbcUrl);
         basicDataSource.setUsername(user);
         basicDataSource.setPassword(password);
+        basicDataSource.setDriverClassName("org.postgresql.Driver");
         return basicDataSource;
     }
 

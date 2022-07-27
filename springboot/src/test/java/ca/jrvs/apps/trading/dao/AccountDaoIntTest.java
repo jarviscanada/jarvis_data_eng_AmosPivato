@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -41,10 +42,7 @@ public class AccountDaoIntTest {
         savedTrader.setCountry("America");
         savedTrader.setId(1);
         savedTrader.setEmail("dam@gmail.com");
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-        String dateS = sdf.format(date);
-        savedTrader.setDob(sdf.parse(dateS));
+        savedTrader.setDob(LocalDate.now());
         savedTrader.setFirst_name("James");
         savedTrader.setLast_name("boy");
         traderDao.save(savedTrader);

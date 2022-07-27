@@ -16,6 +16,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -40,10 +41,7 @@ public class TraderAccountServiceIntTest {
         trader.setCountry("Canada");
         trader.setId(null);
         trader.setEmail("bob@gmail.com");
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-        String dateS = sdf.format(date);
-        trader.setDob(sdf.parse(dateS));
+        trader.setDob(LocalDate.now());
         trader.setFirst_name("Bob");
         trader.setLast_name("Billy");
         savedView = traderAccountService.createTraderAndAccount(trader);

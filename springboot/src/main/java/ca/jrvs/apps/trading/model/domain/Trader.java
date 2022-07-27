@@ -11,7 +11,7 @@ public class Trader implements Entity<Integer>{
 
     private String last_name;
 
-    private Date dob;
+    private LocalDate dob;
 
     private String country;
 
@@ -43,11 +43,11 @@ public class Trader implements Entity<Integer>{
         this.last_name = last_name;
     }
 
-    public Date getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 

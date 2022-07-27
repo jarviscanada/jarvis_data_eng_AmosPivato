@@ -38,10 +38,7 @@ public class TraderDaoIntTest {
         savedTrader.setCountry("Canada");
         savedTrader.setId(2);
         savedTrader.setEmail("bob@gmail.com");
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-        String dateS = sdf.format(date);
-        savedTrader.setDob(sdf.parse(dateS));
+        savedTrader.setDob(LocalDate.now());
         savedTrader.setFirst_name("Bob");
         savedTrader.setLast_name("Billy");
         traderDao.save(savedTrader);

@@ -53,7 +53,7 @@ public class QuoteController {
         }
     }
 
-    @PostMapping(path = "/tickerId/{TickerId}")
+    @PostMapping(path = "/tickerId/{tickerId}")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public Quote createQuote(@PathVariable String tickerId) {

@@ -7,6 +7,7 @@ import ca.jrvs.apps.trading.dao.TraderDao;
 import ca.jrvs.apps.trading.model.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.awt.X11.XSystemTrayPeer;
 
 import java.util.List;
 import java.util.Optional;
@@ -59,7 +60,7 @@ public class TraderAccountService {
      * @return boolean
      */
     private boolean validateTrader(Trader trader){
-        if (trader.getId() != null || trader.getCountry() == null || trader.getDob() == null || trader.getEmail() == null || trader.getFirst_name() == null || trader.getLast_name() == null){
+        if (trader.getCountry() == null || trader.getDob() == null || trader.getEmail() == null || trader.getFirst_name() == null || trader.getLast_name() == null){
             return false;
         }
         else {
