@@ -1,7 +1,5 @@
 package ca.jrvs.apps.trading.model.domain;
 
-import io.swagger.models.auth.In;
-
 public class Position implements Entity<Integer> {
 
     private Integer accountId;
