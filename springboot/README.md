@@ -126,7 +126,7 @@ The app was tested with a mixture of unit tests and Integration tests to ensure 
 Junit4 was used for testing as well as Springboot to simplify project building with dependencies through IoC object injections as well as initializing the database used for testing endpoints.
 - Line coverage final results: at least 52% or above line coverage was achieved through integration tests. (dashboard and JDBCCrud are implemented but not directly run in the app):
 
-![LineCoverage](assets/LineCoverage.png)
+![DockerDeployment](assets/LineCoverage.png)
 
 
 # Deployment
