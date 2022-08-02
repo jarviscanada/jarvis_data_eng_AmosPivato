@@ -49,6 +49,11 @@
       ],
       "git_url": "/core_java",
       "name": "Core Java Apps"
+    },
+    {
+      "description": "Implemented a Springboot trading app that allowed users to retrieve quotes from the IEX cloud API and save them to a daily list or make orders for them using funds on their account.  Trader account details and quote details were persisted in the PSQL database using JDBC as the Datasource API.  The Application was designed around a microservice architecture to allow for a RESTfull design to take place as the CRUD operations could be run using DTO's and DAOs for each table in the database.  This allowed for the app to handle any HTTP request that the app's endpoints provided without needing to worry about andy state changes within the application.  Swagger was used to create an accessible UI for user and endpoint testing.  The final PoC was deployed using Docker images: one to host and initialize the PSQL instance, the other to host the SPringboot app itself after it was dockerized with a docker network to bridge their communications.",
+      "git_url": "/springboot",
+      "name": "Springboot App"
     }
   ],
   "name": "Amos Pivato",
