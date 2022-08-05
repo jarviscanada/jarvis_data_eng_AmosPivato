@@ -24,5 +24,7 @@ public class CountPrimesUnitTest {
     @Test
     public void countPrimes() {
         assertEquals(4 , countPrimes.countPrimes(10));
+        assertEquals(41537 , countPrimes.countPrimes(499979));
+        assertEquals(13848 , countPrimes.countPrimes(150000));
     }
 }
