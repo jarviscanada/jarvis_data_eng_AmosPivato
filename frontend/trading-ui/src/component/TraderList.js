@@ -78,7 +78,8 @@ export default class TraderList extends Component {
     //render method with return table 
     render (){
         return (
-            <Table dataSource={this.state.datasource} columns={ this.state.columns } pagination= {false} />
+            //<Table dataSource={this.state.datasource} columns={ this.state.columns } pagination= {false} />
+            <Table dataSource={this.props.traders} columns={this.state.columns} pagination={false} />
         );
     }
 }
