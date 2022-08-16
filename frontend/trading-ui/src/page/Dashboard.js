@@ -3,7 +3,7 @@ import Navbar from '../component/NavBar';
 import { withRouter } from 'react-router';
 import { Input, DatePicker, Modal, Button, Form } from 'antd';
 import axios from 'axios';
-import {createTraderurl, delteTraderUrl, tradersUrl} from '../utils/constants';
+import {createTraderUrl, deleteTraderUrl, tradersUrl} from '../utils/constants';
 import "./Dashboard.scss";
 import TraderList from '../component/TraderList';
 import 'antd/dist/antd.min.css';
@@ -80,7 +80,7 @@ export default withRouter(class Dashboard extends Component {
     async onTraderDelete(id){
         //senda request to backend to delete the trader with the specific id
         const paramUrl = "/" + id;
-        const response = await axios.delete(delteTraderUrl + paramUrl);
+        const response = await axios.delete(deleteTraderUrl + paramUrl);
         //refresh trader list
         await this.getTraders();
     }
