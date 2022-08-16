@@ -50,30 +50,30 @@ export default class TraderList extends Component {
         this.state = { columns }
     }
 
-    componentDidMount(){
-        //mock datasource cuz we aint connected to backend
-        const datasource = [
-            {
-                key: '1',
-                id: 1,
-                firstName: 'Mike',
-                lastName: 'Spencer',
-                dov: new Date().toLocaleDateString(),
-                country: 'Canada',
-                email: 'mike@test.com'
-            },
-            {
-                key: '2',
-                id: 2,
-                firstName: 'Hellen',
-                lastName: 'Spencer',
-                dov: new Date().toLocaleDateString(),
-                country: 'Austria',
-                email: 'hellen@test.com'
-            },
-        ];
-        this.setState({datasource});
-    }
+    // componentDidMount(){
+    //     //mock datasource cuz we aint connected to backend
+    //     const datasource = [
+    //         {
+    //             key: '1',
+    //             id: 1,
+    //             firstName: 'Mike',
+    //             lastName: 'Spencer',
+    //             dov: new Date().toLocaleDateString(),
+    //             country: 'Canada',
+    //             email: 'mike@test.com'
+    //         },
+    //         {
+    //             key: '2',
+    //             id: 2,
+    //             firstName: 'Hellen',
+    //             lastName: 'Spencer',
+    //             dov: new Date().toLocaleDateString(),
+    //             country: 'Austria',
+    //             email: 'hellen@test.com'
+    //         },
+    //     ];
+    //     this.setState({datasource});
+    // }
 
     //render method with return table 
     render (){
