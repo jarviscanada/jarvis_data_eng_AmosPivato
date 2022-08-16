@@ -14,7 +14,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/dashboard")
-@CrossOrigin(origins = "https://localhost:3000", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 public class DashboardController {
 
     private DashboardService dashboardService;
