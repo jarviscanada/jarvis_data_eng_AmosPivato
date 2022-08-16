@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -25,6 +26,10 @@ public class DashboardService {
         this.positionDao = positionDao;
         this.accountDao = accountDao;
         this.quoteDao = quoteDao;
+    }
+
+    public List<Trader> getTraders(){
+        return traderDao.findAll();
     }
 
     /**

@@ -1,6 +1,7 @@
 package ca.jrvs.apps.trading.controller;
 
 import ca.jrvs.apps.trading.model.domain.PortfolioView;
+import ca.jrvs.apps.trading.model.domain.Trader;
 import ca.jrvs.apps.trading.model.domain.TraderAccountView;
 import ca.jrvs.apps.trading.service.DashboardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,11 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/dashboard")
+@CrossOrigin(origins = "https://localhost:3000", maxAge = 3600)
 public class DashboardController {
 
     private DashboardService dashboardService;
@@ -18,6 +22,17 @@ public class DashboardController {
     @Autowired
     public DashboardController(DashboardService dashboardService){
         this.dashboardService = dashboardService;
+    }
+
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(path = "/traders", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+    public List<Trader> getTraders(){
+        try {
+            return dashboardService.getTraders();
+        } catch (Exception e) {
+            throw ResponseExceptionUtil.getResponseStatusException(e);
+        }
     }
 
     @ResponseBody

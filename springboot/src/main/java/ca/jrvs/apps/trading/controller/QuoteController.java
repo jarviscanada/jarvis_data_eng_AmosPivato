@@ -12,6 +12,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/quote")
+@CrossOrigin(origins = "https://localhost:3000", maxAge = 3600)
 public class QuoteController {
 
     private QuoteService quoteService;

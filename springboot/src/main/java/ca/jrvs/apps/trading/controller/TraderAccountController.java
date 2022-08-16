@@ -15,6 +15,7 @@ import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/trader")
+@CrossOrigin(origins = "https://localhost:3000", maxAge = 3600)
 public class TraderAccountController {
 
     private TraderAccountService traderAccountService;
