@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import Navbar from '../component/NavBar';
 import { withRouter } from 'react-router';
 import { Input, DatePicker, Modal, Button, Form } from 'antd';
@@ -7,6 +7,7 @@ import {createTraderUrl, deleteTraderUrl, tradersUrl} from '../utils/constants';
 import "./Dashboard.scss";
 import TraderList from '../component/TraderList';
 import 'antd/dist/antd.min.css';
+import { createRef } from 'react';
 
 export default withRouter(class Dashboard extends Component {
     constructor(props){
@@ -21,6 +22,7 @@ export default withRouter(class Dashboard extends Component {
             isModalVisible: false,
             traders: []
         }
+        this.formRef = createRef();
     }
 
     async componentDidMount(){
@@ -98,31 +100,93 @@ export default withRouter(class Dashboard extends Component {
                         Dashboard
                         <div className="add-trader-button">
                             <Button onClick={this.showModal.bind(this)}>Add new Trader</Button>
-                            <Modal title="Add New Trader" okText="Submit" visible={this.state.isModalVisible} onOk={this.handleOk} onCancel={this.handleCancel}>
-                                <form layout="Vertical">
+                            <Modal 
+                                title="Add New Trader" 
+                                okText="Submit" 
+                                visible={this.state.isModalVisible}
+                                onCancel={this.handleCancel} 
+                                onOk={() => {
+                                    this.formRef.current
+                                    .validateFields()
+                                    .then((valies) => {
+                                        this.formRef.current.resetFields();
+                                        this.handleOk(); 
+                                    })              
+                                    .catch((info) => {
+                                        console.warn('Validate Failed:', info);
+                                    });
+                                }}
+                            >
+                                <form 
+                                    ref={this.formRef}
+                                    layout="Vertical"
+                                    onSubmit={this.handleOk}
+                                >
                                     <div className="add-trader-form">
                                         <div className="add-trader-field">
-                                            <Form.Item label="First Name">
+                                            <Form.Item 
+                                                label="First Name"
+                                                name="First Name"
+                                                rules={[
+                                                    {
+                                                        required: true,
+                                                    },
+                                                ]}
+                                            >
                                                 <Input allowClear={false} placeholder="john" onChange={(event) => this.onInputChange("first_name", event.target.value)} />
                                             </Form.Item>
                                         </div>
                                         <div className="add-trader-field">
-                                            <Form.Item label="Last Name">
+                                            <Form.Item 
+                                                label="Last Name"
+                                                name="Last Name"
+                                                rules={[
+                                                    {
+                                                        required: true,
+                                                    },
+                                                ]}
+                                            >
                                                 <Input allowClear={false} placeholder="Beck" onChange={(event) => this.onInputChange("last_name", event.target.value)} />
                                             </Form.Item>
                                         </div>
                                         <div className="add-trader-field">
-                                            <Form.Item label="Email">
+                                            <Form.Item 
+                                                label="Email"
+                                                name="Email"
+                                                rules={[
+                                                    {
+                                                        required:true,
+                                                        message: "a valid email must be entered",
+                                                        pattern: new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+                                                    },
+                                                ]}
+                                            >
                                                 <Input allowClear={false} placeholder="john@test.com" onChange={(event) => this.onInputChange("email", event.target.value)} />
                                             </Form.Item>
                                         </div>
                                         <div className="add-trader-field">
-                                            <Form.Item label="Country">
+                                            <Form.Item 
+                                                label="Country"
+                                                name="Country"
+                                                rules={[
+                                                    {
+                                                        required: true,
+                                                    },
+                                                ]}
+                                            >
                                                 <Input allowClear={false} placeholder="Canada" onChange={(event) => this.onInputChange("country", event.target.value)} />
                                             </Form.Item>
                                         </div>
                                         <div className="add-trader-field">
-                                            <Form.Item label="Date of Birth">
+                                            <Form.Item 
+                                                label="Date of Birth"
+                                                name="Date of Birth"
+                                                rules={[
+                                                    {
+                                                    required: true,
+                                                    },
+                                                ]}
+                                            >
                                                 <DatePicker style={{width:"100%"}} placeholder="" onChange={(date, dateString) => this.onInputChange("dob", date.format("yyy-MM-DD"))} />
                                             </Form.Item>
                                         </div>
