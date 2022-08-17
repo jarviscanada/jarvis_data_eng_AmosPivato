@@ -13,13 +13,13 @@ export default class TraderList extends Component {
         const columns = [
             {
                 title: 'First Name',
-                dataIndex: 'firstName',
-                key: 'firstName',
+                dataIndex: 'first_name',
+                key: 'first_name',
             },
             {
                 title: 'Last Name',
-                dataIndex: 'lastName',
-                key: 'lastName',
+                dataIndex: 'last_name',
+                key: 'last_name',
             },
             {
                 title: 'Email',

@@ -56,7 +56,7 @@ export default withRouter(class Dashboard extends Component {
         //     email: null
         // });
 
-        const paramUrl = `/firstname/${this.state.firstName}/lastname/${this.state.lastName}/dob/${this.state.dob}/country/${this.state.country}/email/${this.state.email}`;
+        const paramUrl = `/firstname/${this.state.first_name}/lastname/${this.state.last_name}/dob/${this.state.dob}/country/${this.state.country}/email/${this.state.email}`;
         const response = await axios.post(createTraderUrl + paramUrl, {});
         await this.getTraders();
         this.setState({
@@ -83,6 +83,7 @@ export default withRouter(class Dashboard extends Component {
         const response = await axios.delete(deleteTraderUrl + paramUrl);
         //refresh trader list
         await this.getTraders();
+        console.log("Trader " + id + "is deleted.");
     }
 
 
@@ -102,12 +103,12 @@ export default withRouter(class Dashboard extends Component {
                                     <div className="add-trader-form">
                                         <div className="add-trader-field">
                                             <Form.Item label="First Name">
-                                                <Input allowClear={false} placeholder="john" onChange={(event) => this.onInputChange("firstName", event.target.value)} />
+                                                <Input allowClear={false} placeholder="john" onChange={(event) => this.onInputChange("first_name", event.target.value)} />
                                             </Form.Item>
                                         </div>
                                         <div className="add-trader-field">
                                             <Form.Item label="Last Name">
-                                                <Input allowClear={false} placeholder="Beck" onChange={(event) => this.onInputChange("lastName", event.target.value)} />
+                                                <Input allowClear={false} placeholder="Beck" onChange={(event) => this.onInputChange("last_name", event.target.value)} />
                                             </Form.Item>
                                         </div>
                                         <div className="add-trader-field">
@@ -130,14 +131,9 @@ export default withRouter(class Dashboard extends Component {
                             </Modal>
                         </div>
                     </div>
-                    <TraderList onTraderDeleteClick={this.onTraderDelete} traders={this. state.traders} />  
+                    <TraderList onTraderDeleteClick={this.onTraderDelete} traders={this.state.traders} />  
                 </div>                              
             </div>
         );
-    }
-
-    onTraderDelete(id){
-        //delete trader
-        console.log("Trader " + id + "is deleted.");
     }
 }); 
