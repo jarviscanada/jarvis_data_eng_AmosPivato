@@ -7,7 +7,6 @@ import {createTraderUrl, deleteTraderUrl, tradersUrl} from '../utils/constants';
 import "./Dashboard.scss";
 import TraderList from '../component/TraderList';
 import 'antd/dist/antd.min.css';
-import { createRef } from 'react';
 
 export default withRouter(class Dashboard extends Component {
     constructor(props){
@@ -22,7 +21,7 @@ export default withRouter(class Dashboard extends Component {
             isModalVisible: false,
             traders: []
         }
-        this.formRef = createRef();
+        this.formRef = React.createRef();
     }
 
     async componentDidMount(){
@@ -90,7 +89,7 @@ export default withRouter(class Dashboard extends Component {
 
 
 
-
+//
     render (){
         return (
             <div className="dashboard">
@@ -108,7 +107,7 @@ export default withRouter(class Dashboard extends Component {
                                 onOk={() => {
                                     this.formRef.current
                                     .validateFields()
-                                    .then((valies) => {
+                                    .then((values) => {
                                         this.formRef.current.resetFields();
                                         this.handleOk(); 
                                     })              
@@ -117,7 +116,7 @@ export default withRouter(class Dashboard extends Component {
                                     });
                                 }}
                             >
-                                <form 
+                                <Form 
                                     ref={this.formRef}
                                     layout="Vertical"
                                     onSubmit={this.handleOk}
@@ -191,7 +190,7 @@ export default withRouter(class Dashboard extends Component {
                                             </Form.Item>
                                         </div>
                                     </div>
-                                </form>
+                                </Form>
                             </Modal>
                         </div>
                     </div>

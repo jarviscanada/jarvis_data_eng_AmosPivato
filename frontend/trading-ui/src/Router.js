@@ -3,6 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import Dashboard from './page/Dashboard';
 import QuotePage from './page/Quote';
+import TraderAccountPage from './page/TraderAccount';
 
 export default class Router extends Component {
     render() {
@@ -20,6 +21,9 @@ export default class Router extends Component {
                     </Route>
                     <Route exact path ="/quotes">
                         <QuotePage />
+                    </Route>
+                    <Route exact path="/trader/:traderId">
+                        <TraderAccountPage />
                     </Route>
                 </Switch>
             </BrowserRouter>
