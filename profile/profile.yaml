@@ -26,6 +26,7 @@ skills:
     - HTML/CSS
     - DAX/M
     - Power BI/Power Query
+    - React/React Native
     - SAP
     - R
     - Haskel
@@ -36,7 +37,6 @@ skills:
     - JUNIT
 #  At least 5 skills
   familiar:
-    - React/React Native
     - Android studio
     - Selenium
     - PHP/ASP
@@ -65,6 +65,13 @@ jarvis_projects:
       - "Implemented a Springboot trading app that allowed users to retrieve quotes from the IEX cloud API and save them to a daily list or make orders for them using funds on their account.  Trader account details and quote details were persisted in the PSQL database using JDBC as the Datasource API." 
       - "The Application was designed around a microservice architecture to allow for a RESTfull design to take place as the CRUD operations could be run using DTO's and DAOs for each table in the database.  This allowed for the app to handle any HTTP request that the app's endpoints provided without needing to worry about andy state changes within the application.  Swagger was used to create an accessible UI for user and endpoint testing."
       - "The final PoC was deployed using Docker images: one to host and initialize the PSQL instance, the other to host the SPringboot app itself after it was dockerized with a docker network to bridge their communications."
+  - name: "Trading app Frontend"
+    git_url: "/frontend"
+    description: 
+      - "Implemented the Frontend of the Springboot trading app to allow users to manage trader accounts, daily quote tickers and acount funds.  Essentially allowing for the Trader details and quote info to be read and used in a more legible format than with just the backend endpoints."
+      - "The application was made using Node.js and React as the build and dependency management tools, this way testing could be done more efficiently and the apps insatllation would be handled without any issues.  Finaly SASS was used to create more efficient css for the app."
+      - "The final MVP was deployed on to github and tested to ensure that the components and pages worked correctly and that the backend connections were functioning as they should be."
+
 #  - name: "Python Data Analytics"
 #    git_url: "/python_data_anlytics"
 #    description: ""
