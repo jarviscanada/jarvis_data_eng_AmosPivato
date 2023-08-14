@@ -97,7 +97,17 @@ highlighted_projects:
 #The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
 #The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
 professional_experience:
-# Write your Jarvis role as a professional experience rather than training.
+# Write your Jarvis role as a professional experience rather than training.''
+  - title: "Junior Backend Developer"
+    company: "National Bank of Canada"
+    duration: "2022-present"
+    description:
+        "Implemented and deployed numerous scripts and endpoints for backend APIs using Springboot, maven, JUnit, Kafka, terraform, Jenkins and proprietary tools 
+        within local and cloud-based environments such as AWS EKS.  Assisted in the migration of web applications from Openshift to AWS EKS.
+        Worked with the Atlassian suite list of applications including Bitbucket, Jira and Confluence for task, documentation and application version management.
+	      Applied the software development lifecycle concepts to maintain project demands and expectations.
+        Completed unit, manual, mutation and integration testing using Postman, Junit and Sonarlint to ensure code quality and functionality.
+        Combined efforts with my team in an agile scrum framework to complete our task efficiently while maintaining daily meetings and sprint retrospectives."
   - title: "Software Developer"
     company: "Jarvis"
     duration: "2022-present"
@@ -151,4 +161,5 @@ others:
     bullets:
       - "Trombone player"
       - "Rock climbing"
+      - "Gaming"
 
