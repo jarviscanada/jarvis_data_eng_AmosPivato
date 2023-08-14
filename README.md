@@ -6,9 +6,9 @@ My name is Amos Pivato, and I am a Toronto Metropolitan University Computer Scie
 
 **Proficient:** Python, C/C++, Visual Basic, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
 
-**Competent:** Java, JavaScript/Jquery, HTML/CSS, DAX/M, Power BI/Power Query, SAP, R, Haskel, Erlang/Rust/Prolog, Oracle, PSQL, DOCKER, JUNIT
+**Competent:** Java, JavaScript/Jquery, HTML/CSS, DAX/M, Power BI/Power Query, React/React Native, SAP, R, Haskel, Erlang/Rust/Prolog, Oracle, PSQL, DOCKER, JUNIT
 
-**Familiar:** React/React Native, Android studio, Selenium, PHP/ASP, Ruby, Perl, Arduino/Raspberry Pi
+**Familiar:** Android studio, Selenium, PHP/ASP, Ruby, Perl, Arduino/Raspberry Pi
 
 ## Jarvis Projects
 
@@ -31,6 +31,12 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AmosPivato
   - Implemented a Springboot trading app that allowed users to retrieve quotes from the IEX cloud API and save them to a daily list or make orders for them using funds on their account.  Trader account details and quote details were persisted in the PSQL database using JDBC as the Datasource API.
   - The Application was designed around a microservice architecture to allow for a RESTfull design to take place as the CRUD operations could be run using DTO's and DAOs for each table in the database.  This allowed for the app to handle any HTTP request that the app's endpoints provided without needing to worry about andy state changes within the application.  Swagger was used to create an accessible UI for user and endpoint testing.
   - The final PoC was deployed using Docker images: one to host and initialize the PSQL instance, the other to host the SPringboot app itself after it was dockerized with a docker network to bridge their communications.
+
+**Trading app Frontend** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AmosPivato/tree/master/frontend)]:
+      
+  - Implemented the Frontend of the Springboot trading app to allow users to manage trader accounts, daily quote tickers and acount funds.  Essentially allowing for the Trader details and quote info to be read and used in a more legible format than with just the backend endpoints.
+  - The application was made using Node.js and React as the build and dependency management tools, this way testing could be done more efficiently and the apps insatllation would be handled without any issues.  Finaly SASS was used to create more efficient css for the app.
+  - The final MVP was deployed on to github and tested to ensure that the components and pages worked correctly and that the backend connections were functioning as they should be.
 
 
 ## Highlighted Projects

@@ -58,6 +58,15 @@
       ],
       "git_url": "/springboot",
       "name": "Springboot App"
+    },
+    {
+      "description": [
+        "Implemented the Frontend of the Springboot trading app to allow users to manage trader accounts, daily quote tickers and acount funds.  Essentially allowing for the Trader details and quote info to be read and used in a more legible format than with just the backend endpoints.",
+        "The application was made using Node.js and React as the build and dependency management tools, this way testing could be done more efficiently and the apps insatllation would be handled without any issues.  Finaly SASS was used to create more efficient css for the app.",
+        "The final MVP was deployed on to github and tested to ensure that the components and pages worked correctly and that the backend connections were functioning as they should be."
+      ],
+      "git_url": "/frontend",
+      "name": "Trading app Frontend"
     }
   ],
   "name": "Amos Pivato",
@@ -118,6 +127,7 @@
       "HTML/CSS",
       "DAX/M",
       "Power BI/Power Query",
+      "React/React Native",
       "SAP",
       "R",
       "Haskel",
@@ -128,7 +138,6 @@
       "JUNIT"
     ],
     "familiar": [
-      "React/React Native",
       "Android studio",
       "Selenium",
       "PHP/ASP",
