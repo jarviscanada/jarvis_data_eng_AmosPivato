@@ -79,12 +79,19 @@
     {
       "bullets": [
         "Trombone player",
-        "Rock climbing"
+        "Rock climbing",
+        "Gaming"
       ],
       "title": "Activities/Hobbies"
     }
   ],
   "professional_experience": [
+    {
+      "company": "National Bank of Canada",
+      "description": "Implemented and deployed numerous scripts and endpoints for backend APIs using Springboot, maven, JUnit, Kafka, terraform, Jenkins and proprietary tools within local and cloud-based environments such as AWS EKS.  Assisted in the migration of web applications from Openshift to AWS EKS. Worked with the Atlassian suite list of applications including Bitbucket, Jira and Confluence for task, documentation and application version management. Applied the software development lifecycle concepts to maintain project demands and expectations. Completed unit, manual, mutation and integration testing using Postman, Junit and Sonarlint to ensure code quality and functionality. Combined efforts with my team in an agile scrum framework to complete our task efficiently while maintaining daily meetings and sprint retrospectives.",
+      "duration": "2022-present",
+      "title": "Junior Backend Developer"
+    },
     {
       "company": "Jarvis",
       "description": "Implemented a series of back-end Java and Linux-based projects using industry-standard tools such as Docker, Maven, Springboot, and Junit. Learned and applied multiple computer science concepts in a software development lifecycle context. Collaborated in a team setting using the agile scrum framework to conduct daily meetings and project retrospectives.",
