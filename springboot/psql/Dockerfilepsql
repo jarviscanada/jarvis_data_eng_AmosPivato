@@ -1,0 +1,3 @@
+FROM postgres:9.6-alpine
+RUN echo "building trading-psql image"
+COPY ./psql/schema.sql /docker-entrypoint-initdb.d/
