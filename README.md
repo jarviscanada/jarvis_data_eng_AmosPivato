@@ -49,6 +49,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AmosPivato
 
 ## Professional Experiences
 
+**Junior Backend Developer, National Bank of Canada (2022-present)**: Implemented and deployed numerous scripts and endpoints for backend APIs using Springboot, maven, JUnit, Kafka, terraform, Jenkins and proprietary tools within local and cloud-based environments such as AWS EKS.  Assisted in the migration of web applications from Openshift to AWS EKS. Worked with the Atlassian suite list of applications including Bitbucket, Jira and Confluence for task, documentation and application version management. Applied the software development lifecycle concepts to maintain project demands and expectations. Completed unit, manual, mutation and integration testing using Postman, Junit and Sonarlint to ensure code quality and functionality. Combined efforts with my team in an agile scrum framework to complete our task efficiently while maintaining daily meetings and sprint retrospectives.
+
 **Software Developer, Jarvis (2022-present)**: Implemented a series of back-end Java and Linux-based projects using industry-standard tools such as Docker, Maven, Springboot, and Junit. Learned and applied multiple computer science concepts in a software development lifecycle context. Collaborated in a team setting using the agile scrum framework to conduct daily meetings and project retrospectives.
 
 **Underwriting Assistant, Munich Re (2021-2021)**: Designed and implemented queries to pull relevant data from online warehouses into Power BI. Arranged and formatted tables to ensure the information pulled from the data reconciles with department standards. Documented query details, design, and functionality for future development.
@@ -70,3 +72,4 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AmosPivato
 - Fluent in French and knowledgable in Spanish
 - Trombone player
 - Rock climbing
+- Gaming

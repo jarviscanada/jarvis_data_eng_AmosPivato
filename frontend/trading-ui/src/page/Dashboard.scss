@@ -1,0 +1,24 @@
+.dashboard {
+    background-color: #F5F7FA;
+    padding-left: 56px * 2;
+    padding-right: 56px;
+    padding-top: 112px;
+    height: 100vh;
+
+    .title {
+        font-size: 24px;
+        font-weight: 700;
+        text-align: left;
+        padding-bottom: 24px;
+
+        .add-trader-button {
+            float: right;
+        }
+    }
+
+    .add-trader-form {
+        .add-trader-field {
+            padding-bottom: 12px;
+        }
+    }
+}
